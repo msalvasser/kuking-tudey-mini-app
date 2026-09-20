@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111111">
+  <title>КУКИНГ ТУДЕЙ — Telegram Mini App</title>
+  <script src="https://telegram.org/js/telegram-web-app.js?63"></script>
+  <style>
+    :root{
+      --bg:#f6f0e7; --ink:#111; --muted:#746f69; --card:#fffaf3;
+      --accent:#ff4b26; --pink:#ef4c93; --lime:#cfe84a; --lav:#cfc1ff;
+      --line:#111; --shadow:5px 5px 0 #111;
+      --safe-bottom:env(safe-area-inset-bottom,0px);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    body{min-height:100vh}
+    button,input,textarea,select{font:inherit}
+    button{cursor:pointer}
+    .app{max-width:760px;margin:0 auto;padding:16px 14px calc(92px + var(--safe-bottom))}
+    .top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px}
+    .brand{font-weight:1000;letter-spacing:-.08em;line-height:.84;font-size:34px;text-transform:uppercase}
+    .brand span{display:block;color:var(--accent)}
+    .mini-note{font-size:11px;font-weight:800;text-transform:uppercase;max-width:150px;text-align:right;line-height:1.1}
+    .hero{border:3px solid var(--line);background:#111;color:#fff;border-radius:28px;padding:20px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .hero h1{font-size:42px;line-height:.9;letter-spacing:-.07em;margin:0 0 10px;max-width:560px}
+    .hero p{margin:0;max-width:520px;color:#d8d2ca;font-weight:700}
+    .scribble{position:absolute;right:-18px;bottom:-26px;width:170px;height:170px;border:7px solid var(--lime);border-radius:45% 55% 58% 42%;transform:rotate(14deg)}
+    .scribble:after{content:"";position:absolute;inset:24px 18px 12px 34px;border:5px solid var(--pink);border-radius:55% 45% 40% 60%;transform:rotate(-20deg)}
+    .search{display:flex;gap:8px;margin:14px 0}
+    .search input{flex:1;min-width:0;border:2px solid var(--line);border-radius:16px;padding:14px 15px;background:#fff;font-weight:800;outline:none}
+    .search input:focus{box-shadow:0 0 0 3px var(--lav)}
+    .icon-btn{border:2px solid var(--line);background:#fff;border-radius:16px;padding:0 15px;font-weight:1000}
+    .chips{display:flex;gap:8px;overflow:auto;padding:2px 0 12px;scrollbar-width:none}
+    .chips::-webkit-scrollbar{display:none}
+    .chip{white-space:nowrap;border:2px solid var(--line);border-radius:999px;padding:8px 12px;background:#fff;font-weight:900}
+    .chip.active{background:var(--accent);color:#fff}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:8px;margin:18px 0 10px}
+    .section-head h2{margin:0;font-size:26px;letter-spacing:-.05em}
+    .section-head small{font-weight:900;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .card{background:var(--card);border:2px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:3px 3px 0 #111;min-width:0}
+    .card button{all:unset;display:block;width:100%;cursor:pointer}
+    .art{aspect-ratio:1.08;background:#f0e7d8;border-bottom:2px solid var(--line);position:relative;overflow:hidden}
+    .card-body{padding:12px}
+    .eyebrow{display:flex;justify-content:space-between;gap:8px;font-size:10px;font-weight:1000;text-transform:uppercase}
+    .title{font-size:21px;line-height:.95;letter-spacing:-.05em;margin:6px 0 8px;font-weight:1000}
+    .meta{font-size:11px;font-weight:800;color:var(--muted)}
+    .tag{display:inline-block;margin-top:8px;background:var(--lime);border:1px solid var(--line);border-radius:999px;padding:4px 7px;font-size:9px;font-weight:1000}
+    .empty{border:2px dashed var(--line);border-radius:20px;padding:24px;text-align:center;font-weight:800;background:#fff8}
+    .panel{border:2px solid var(--line);border-radius:22px;background:#fffaf3;padding:16px;box-shadow:3px 3px 0 #111;margin-top:14px}
+    .panel h3{margin:0 0 10px;font-size:25px;letter-spacing:-.05em}
+    .list{display:grid;gap:8px}
+    .row{display:flex;align-items:center;gap:10px;border-bottom:1px solid #c9c0b6;padding:9px 0}
+    .row:last-child{border-bottom:0}
+    .row input{width:22px;height:22px;accent-color:var(--accent)}
+    .row.done span{text-decoration:line-through;color:#8b847b}
+    .row .qty{margin-left:auto;font-weight:1000}
+    .primary{border:2px solid var(--line);background:var(--accent);color:#fff;border-radius:16px;padding:13px 16px;font-weight:1000;box-shadow:3px 3px 0 #111}
+    .secondary{border:2px solid var(--line);background:#fff;border-radius:16px;padding:12px 14px;font-weight:1000}
+    .danger{border:2px solid var(--line);background:#fff0ef;color:#b21f12;border-radius:16px;padding:11px 14px;font-weight:1000}
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    .bottom{position:fixed;left:0;right:0;bottom:0;padding:8px 10px calc(8px + var(--safe-bottom));background:rgba(246,240,231,.94);backdrop-filter:blur(12px);z-index:20}
+    .nav{max-width:740px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;border:2px solid var(--line);border-radius:20px;background:#fff;padding:5px;box-shadow:3px 3px 0 #111}
+    .nav button{border:0;background:transparent;border-radius:14px;padding:9px 4px;font-size:10px;font-weight:1000}
+    .nav button.active{background:#111;color:#fff}
+    .modal{position:fixed;inset:0;background:rgba(17,17,17,.55);z-index:50;display:none;align-items:flex-end}
+    .modal.open{display:flex}
+    .sheet{background:var(--bg);width:100%;max-height:92vh;overflow:auto;border-radius:28px 28px 0 0;border:3px solid #111;border-bottom:0;padding:16px 14px calc(28px + var(--safe-bottom));animation:up .18s ease-out}
+    @keyframes up{from{transform:translateY(20px);opacity:.7}to{transform:none;opacity:1}}
+    .sheet-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
+    .close{width:42px;height:42px;border:2px solid #111;border-radius:50%;background:#fff;font-size:22px;font-weight:1000}
+    .detail-art{border:2px solid #111;border-radius:24px;overflow:hidden;margin-bottom:14px}
+    .detail h2{font-size:38px;line-height:.88;letter-spacing:-.07em;margin:0 0 8px}
+    .detail .desc{font-weight:700;color:#4e4943;line-height:1.35}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:14px 0}
+    .stat{border:2px solid #111;border-radius:15px;background:#fff;padding:10px}
+    .stat b{display:block;font-size:18px}.stat small{font-size:9px;font-weight:900;text-transform:uppercase}
+    .detail h3{font-size:20px;letter-spacing:-.04em;margin:16px 0 7px}
+    .detail ul,.detail ol{padding-left:22px;line-height:1.45;font-weight:700}
+    .detail li{margin:5px 0}
+    .fav{border:2px solid #111;background:#fff;border-radius:50%;width:42px;height:42px;font-size:20px}
+    .form{display:grid;gap:10px}
+    .field label{display:block;font-size:11px;text-transform:uppercase;font-weight:1000;margin-bottom:5px}
+    .field input,.field textarea,.field select{width:100%;border:2px solid #111;border-radius:14px;padding:12px;background:#fff;outline:none}
+    .field textarea{min-height:100px;resize:vertical}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .toast{position:fixed;left:50%;bottom:92px;transform:translateX(-50%);z-index:80;background:#111;color:#fff;border-radius:999px;padding:11px 15px;font-size:12px;font-weight:900;display:none}
+    .toast.show{display:block}
+    @media(max-width:520px){.grid{grid-template-columns:1fr 1fr}.hero h1{font-size:36px}.title{font-size:19px}}
+    @media(max-width:360px){.grid{grid-template-columns:1fr}.brand{font-size:30px}}
+  </style>
+</head>
+<body>
+<div id="app" class="app">
+  <header class="top">
+    <div class="brand">КУКИНГ<span>ТУДЕЙ</span></div>
+    <div class="mini-note">семейная книга<br>в Telegram</div>
+  </header>
+  <main id="main"></main>
+</div>
+
+<nav class="bottom">
+  <div class="nav">
+    <button data-tab="today" class="active">✦<br>Сегодня</button>
+    <button data-tab="recipes">◌<br>Рецепты</button>
+    <button data-tab="shop">▣<br>Закупка</button>
+    <button data-tab="saved">♡<br>Сохранённое</button>
+  </div>
+</nav>
+
+<div id="modal" class="modal" aria-hidden="true">
+  <section class="sheet" role="dialog" aria-modal="true">
+    <div id="sheet"></div>
+  </section>
+</div>
+<div id="toast" class="toast"></div>
+
+<script src="data/recipes.js"></script>
+<script>
+(function(){
+  "use strict";
+  const tg = window.Telegram && window.Telegram.WebApp;
+  if(tg){ try{tg.ready(); tg.expand(); tg.setHeaderColor("#f6f0e7"); tg.setBackgroundColor("#f6f0e7");}catch(e){} }
+
+  const baseRecipes = Array.isArray(window.COOKING_TODAY_RECIPES) ? window.COOKING_TODAY_RECIPES : [];
+  const keyRecipes = "ct_user_recipes_v1";
+  const keySaved = "ct_saved_v1";
+  const keyShop = "ct_shop_v1";
+  const keyTab = "ct_tab_v1";
+
+  const safeRead = (key, fallback) => {
+    try { const x = JSON.parse(localStorage.getItem(key)); return x ?? fallback; } catch(e){ return fallback; }
+  };
+  const safeWrite = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); } catch(e){} };
+
+  let userRecipes = safeRead(keyRecipes, []);
+  let saved = new Set(safeRead(keySaved, []));
+  let shop = safeRead(keyShop, []);
+  let tab = safeRead(keyTab, "today");
+  let query = "";
+  let filter = "all";
+
+  const allRecipes = () => [...baseRecipes, ...userRecipes];
+  const $ = (s) => document.querySelector(s);
+  const main = $("#main");
+
+  function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));}
+  function hash(s){let h=0;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))|0;return Math.abs(h);}
+  function pick(a,n){return a[n%a.length]}
+  function art(r, idx=0, large=false){
+    const h=hash(r.n), c=pick(["#ff4b26","#ef4c93","#6e8cff","#16a579","#efc52e","#8b62e8"],h);
+    const bg=pick(["#f8d9cc","#f0d8ef","#dbe1ff","#d7efe6","#fff0a4","#e7ddff"],h+1);
+    const ink="#111", w=large?640:360, hh=large?500:330;
+    const n=(r.n||"").toLowerCase();
+    let scene="bowl";
+    if(/паста|карбонара|болоньез/.test(n)) scene="pasta";
+    else if(/рамен/.test(n)) scene="ramen";
+    else if(/кревет/.test(n)) scene="shrimp";
+    else if(/суп/.test(n)) scene="soup";
+    else if(/перец/.test(n)) scene="pepper";
+    else if(/лук/.test(n)) scene="onion";
+    else if(/гриб|шампин/.test(n)) scene="mushroom";
+    else if(/печень/.test(n)) scene="liver";
+    else if(/картофель/.test(n)) scene="potato";
+    else if(/брокколи/.test(n)) scene="broccoli";
+    else if(/овощ/.test(n)) scene="veg";
+    else if(/штруд|шарлот|банан|десерт/.test(n)) scene="dessert";
+    else if(/соус|кимчи|квашен|корниш|фермент/.test(n)) scene="sauce";
+    else if(/свин|bbq/.test(n)) scene="pulled";
+    else if(/фрикадел/.test(n)) scene="meatballs";
+    else if(/говядин/.test(n)) scene="beef";
+    else if(/куриц|курин/.test(n)) scene="chicken";
+    else if(/яйц|шакшук/.test(n)) scene="eggs";
+    const shapes = {
+      pasta:`<path d="M75 218 C110 155 148 166 181 220 S258 279 300 210" fill="none" stroke="${c}" stroke-width="22" stroke-linecap="round"/><path d="M80 242 C120 183 151 195 187 240 S258 298 303 232" fill="none" stroke="#e6a07c" stroke-width="16" stroke-linecap="round"/><path d="M115 158 Q185 128 253 160" fill="none" stroke="${ink}" stroke-width="7" stroke-linecap="round"/><circle cx="238" cy="190" r="12" fill="#d3aa42"/><circle cx="271" cy="210" r="9" fill="#d3aa42"/>`,
+      ramen:`<path d="M76 208 Q188 166 302 208 L284 286 Q188 318 94 286Z" fill="${c}" stroke="${ink}" stroke-width="7"/><path d="M96 223 Q188 194 282 223 M96 242 Q188 213 282 242 M101 261 Q188 233 277 260" fill="none" stroke="#ffeab0" stroke-width="10"/><circle cx="221" cy="207" r="28" fill="#fff1d2" stroke="${ink}" stroke-width="6"/><circle cx="221" cy="207" r="9" fill="#e9a32e"/><path d="M131 183 Q117 158 134 141 M163 178 Q151 154 168 136" fill="none" stroke="${ink}" stroke-width="6" stroke-linecap="round"/>`,
+      shrimp:`<g stroke="${ink}" stroke-width="6"><path d="M88 228 Q93 171 140 194 Q172 212 147 243 Q116 270 88 228Z" fill="${c}"/><path d="M160 217 Q170 164 214 194 Q240 213 215 244 Q178 267 160 217Z" fill="${c}"/><path d="M232 225 Q245 179 282 204 Q306 221 283 247 Q251 264 232 225Z" fill="${c}"/></g><path d="M112 207 Q123 222 110 238 M186 195 Q197 214 184 232 M254 203 Q265 219 253 235" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>`,
+      soup:`<path d="M75 210 Q188 176 301 210 L278 286 Q188 318 98 286Z" fill="${c}" stroke="${ink}" stroke-width="7"/><path d="M99 209 Q188 184 278 209" fill="none" stroke="#fff" stroke-width="7"/><path d="M122 173 C110 150 129 141 121 120 M188 171 C176 147 195 137 187 116 M250 172 C238 149 257 139 249 118" fill="none" stroke="${ink}" stroke-width="6" stroke-linecap="round"/>`,
+      eggs:`<ellipse cx="139" cy="220" rx="46" ry="38" fill="#fff" stroke="${ink}" stroke-width="6"/><circle cx="139" cy="220" r="15" fill="#f3b52f"/><ellipse cx="238" cy="229" rx="46" ry="38" fill="#fff" stroke="${ink}" stroke-width="6"/><circle cx="238" cy="229" r="15" fill="#f3b52f"/><path d="M99 275 Q188 299 278 274" fill="none" stroke="${c}" stroke-width="14" stroke-linecap="round"/>`,
+      chicken:`<g stroke="${ink}" stroke-width="7"><path d="M105 246 Q98 181 148 168 Q196 157 204 210 Q211 263 159 278 Q118 288 105 246Z" fill="${c}"/><path d="M205 235 Q198 183 244 174 Q285 168 294 216 Q299 262 258 276 Q219 282 205 235Z" fill="#f1b36b"/></g><path d="M125 211 Q153 196 181 214 M224 213 Q251 198 277 216" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/>`,
+      beef:`<path d="M83 244 Q85 179 137 162 Q190 143 232 171 Q284 203 274 258 Q263 305 195 303 Q118 306 83 244Z" fill="${c}" stroke="${ink}" stroke-width="8"/><path d="M119 228 Q158 196 208 210 Q235 218 252 245" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/><circle cx="168" cy="208" r="8" fill="#111"/><circle cx="218" cy="255" r="8" fill="#111"/>`,
+      meatballs:`<g stroke="${ink}" stroke-width="7"><circle cx="133" cy="213" r="38" fill="${c}"/><circle cx="198" cy="191" r="40" fill="#e57c58"/><circle cx="251" cy="226" r="39" fill="${c}"/><path d="M113 259 Q188 286 269 258" fill="none" stroke="#e24b3b" stroke-width="16" stroke-linecap="round"/></g>`,
+      veg:`<g stroke="${ink}" stroke-width="6"><path d="M92 264 Q72 216 113 184 Q145 164 174 193 L151 274Z" fill="#69bd72"/><path d="M160 276 L187 175 L226 185 L214 282Z" fill="#f2a12f"/><path d="M226 276 Q214 218 260 187 Q291 169 306 214 L294 276Z" fill="#ef6e73"/></g><path d="M110 202 L143 227 M178 207 L207 230 M250 210 L279 231" stroke="#fff" stroke-width="7" stroke-linecap="round"/>`,
+      broccoli:`<g stroke="${ink}" stroke-width="6"><path d="M155 268 L165 218 L209 218 L218 269Z" fill="#8b6a42"/><circle cx="140" cy="198" r="34" fill="#5aae5e"/><circle cx="181" cy="178" r="40" fill="#65bf6b"/><circle cx="224" cy="197" r="35" fill="#55a85a"/></g>`,
+      potato:`<g stroke="${ink}" stroke-width="6"><path d="M92 248 Q78 193 129 176 Q185 158 210 205 Q229 245 187 273 Q121 300 92 248Z" fill="#dca15d"/><path d="M207 246 Q202 202 248 188 Q291 179 304 224 Q313 264 270 279 Q224 291 207 246Z" fill="#a87649"/></g><circle cx="150" cy="220" r="8" fill="#111"/><circle cx="257" cy="225" r="8" fill="#111"/>`,
+      mushroom:`<g stroke="${ink}" stroke-width="6"><path d="M107 267 Q101 216 142 214 L153 267Z" fill="#e9d0aa"/><path d="M91 216 Q94 170 140 167 Q181 169 187 214Z" fill="${c}"/><path d="M198 267 Q191 212 232 211 L245 267Z" fill="#e9d0aa"/><path d="M183 214 Q186 170 231 167 Q272 170 278 214Z" fill="#a96b58"/></g>`,
+      liver:`<path d="M92 239 Q103 188 157 178 Q217 166 267 205 Q294 229 272 267 Q228 303 168 286 Q108 278 92 239Z" fill="${c}" stroke="${ink}" stroke-width="8"/><path d="M128 222 Q170 200 224 224 M124 246 Q170 225 236 247" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/>`,
+      pepper:`<g stroke="${ink}" stroke-width="7"><path d="M105 273 Q86 219 119 187 Q151 164 177 194 L165 273Z" fill="#ef6f58"/><path d="M169 275 Q154 216 190 184 Q221 164 246 193 L231 275Z" fill="#65b967"/><path d="M230 274 Q214 218 247 191 Q276 174 301 206 L289 274Z" fill="#efc84b"/></g>`,
+      onion:`<path d="M102 269 Q91 208 135 183 Q188 153 237 187 Q286 219 266 269 Q215 301 102 269Z" fill="${c}" stroke="${ink}" stroke-width="8"/><path d="M137 257 Q155 220 170 195 M178 267 Q194 225 211 194 M217 268 Q232 229 246 207" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>`,
+      pulled:`<path d="M86 257 Q91 190 151 175 Q214 160 270 199 Q303 222 278 272 Q230 307 164 291 Q101 284 86 257Z" fill="#9b4d38" stroke="${ink}" stroke-width="8"/><path d="M118 215 Q160 232 190 206 M153 253 Q198 270 239 242" fill="none" stroke="#eecb86" stroke-width="9" stroke-linecap="round"/>`,
+      dessert:`<path d="M96 261 L107 180 L268 180 L282 261Z" fill="#f2b3c8" stroke="${ink}" stroke-width="8"/><path d="M107 180 Q187 153 268 180" fill="#fff0cf" stroke="${ink}" stroke-width="8"/><path d="M119 212 Q184 236 258 211" fill="none" stroke="#d86b58" stroke-width="8"/><circle cx="151" cy="162" r="11" fill="#e94b63"/><circle cx="235" cy="159" r="11" fill="#e94b63"/>`,
+      sauce:`<path d="M137 267 L143 188 L245 188 L252 267Z" fill="#fff" stroke="${ink}" stroke-width="8"/><path d="M156 188 L156 167 Q188 151 220 167 L220 188" fill="${c}" stroke="${ink}" stroke-width="8"/><path d="M159 224 Q193 208 230 224" fill="none" stroke="${c}" stroke-width="13"/><circle cx="193" cy="247" r="8" fill="#111"/>`,
+      bowl:`<path d="M75 210 Q188 177 301 210 L278 286 Q188 317 98 286Z" fill="${c}" stroke="${ink}" stroke-width="7"/><path d="M99 210 Q188 185 278 210" fill="none" stroke="#fff" stroke-width="7"/><circle cx="143" cy="226" r="14" fill="#65b967"/><circle cx="190" cy="221" r="16" fill="#f0b43b"/><circle cx="240" cy="228" r="14" fill="#ef6f73"/>`,
+    };
+    const sticker = pick(["★","✦","↗","+","◎"],h+2);
+    const title = (r.n||"").toUpperCase().slice(0,18);
+    return `<svg viewBox="0 0 ${w} ${hh}" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-label="${esc(r.n)}">
+      <rect width="${w}" height="${hh}" fill="${bg}"/>
+      <path d="M0 48 Q80 8 160 50 T320 48 T480 52 T640 42 L640 0 L0 0Z" fill="${c}" opacity=".22"/>
+      <path d="M${w-120} ${hh-10} Q${w-45} ${hh-100} ${w+20} ${hh-45}" fill="none" stroke="${c}" stroke-width="20" opacity=".35"/>
+      <g transform="translate(${large?40:8},${large?18:4}) scale(${large?1.0:.52})">${shapes[scene]}</g>
+      <g font-family="Arial, sans-serif" font-weight="900">
+        <rect x="${large?34:16}" y="${large?38:18}" width="${large?142:86}" height="${large?38:24}" rx="19" fill="#fff" stroke="${ink}" stroke-width="4"/>
+        <text x="${large?105:59}" y="${large?63:35}" text-anchor="middle" font-size="${large?15:10}" fill="${ink}">${esc(sticker)} COOK</text>
+        <text x="${large?35:16}" y="${large?455:306}" font-size="${large?28:15}" fill="${ink}" letter-spacing="-1">${esc(title)}</text>
+      </g>
+      <path d="M${large?520:260} ${large?80:54} q22 -18 44 0 q22 18 44 0" fill="none" stroke="${ink}" stroke-width="4" stroke-linecap="round"/>
+    </svg>`;
+  }
+
+  function mealLabel(r){ return r.time==="quick"?"до 20 мин":r.time==="normal"?"20–40 мин":r.time==="cook"?"40–60 мин":r.time==="prep"?"meal prep":"—"; }
+  function typeLabel(r){ return r.type==="sauce"?"соус":r.type==="prep"?"заготовка":r.type==="dessert"?"десерт":r.type==="side"?"гарнир":"блюдо"; }
+  function card(r,i){
+    const isSaved=saved.has(r.n);
+    return `<article class="card"><button data-open="${esc(r.n)}" type="button">
+      <div class="art">${art(r,i)}</div>
+      <div class="card-body">
+        <div class="eyebrow"><span>${esc(typeLabel(r))}</span><span>${esc(mealLabel(r))}</span></div>
+        <div class="title">${esc(r.n)}</div>
+        <div class="meta">${esc(r.k||"—")} ккал ${r.m?`· ${esc(r.m)}`:""}</div>
+        <span class="tag">${isSaved?"♡ сохранено":"♡ сохранить"}</span>
+      </div></button></article>`;
+  }
+
+  function renderToday(){
+    const all=allRecipes();
+    const picks=[...all].sort((a,b)=>a.mins-b.mins).slice(0,6);
+    return `<section class="hero"><h1>ЧТО БУДЕМ<br>ГОТОВИТЬ СЕГОДНЯ?</h1><p>43 семейных рецепта + твои новые блюда. Быстро, красиво и без ощущения, что готовка — это второй job.</p><div class="scribble"></div></section>
+      <div class="section-head"><h2>Когда есть силы?</h2><small>выбери свой режим</small></div>
+      <div class="chips">
+        ${["quick","normal","cook","prep"].map(x=>`<button class="chip" data-filter="${x}">${x==="quick"?"⚡ До 20 мин":x==="normal"?"🍳 20–40 мин":x==="cook"?"🍲 40–60 мин":"📦 На несколько дней"}</button>`).join("")}
+      </div>
+      <div class="section-head"><h2>Идеи на сегодня</h2><small>${all.length} рецептов</small></div>
+      <div class="grid">${picks.map((r,i)=>card(r,i)).join("")}</div>
+      <section class="panel"><h3>➕ Свой рецепт</h3><p style="font-weight:700;color:#5d5750">Добавь семейное блюдо прямо из Telegram. Оно сохранится на этом устройстве и появится в «Сохранённом».</p><button class="primary" data-action="add">Добавить рецепт</button></section>`;
+  }
+
+  function renderRecipes(){
+    let arr=allRecipes().filter(r=>{
+      const q=(query||"").toLowerCase().trim();
+      const matchesQ=!q || [r.n,r.d,...(r.tags||[]),r.p,r.type].join(" ").toLowerCase().includes(q);
+      const matchesF=filter==="all" || r.time===filter || r.p===filter || r.type===filter;
+      return matchesQ && matchesF;
+    });
+    return `<div class="search"><input id="q" value="${esc(query)}" placeholder="Искать: курица, паста, соус..."><button class="icon-btn" data-action="clearq">×</button></div>
+      <div class="chips">
+        ${[["all","Все"],["quick","⚡ до 20"],["normal","🍳 20–40"],["cook","🍲 40–60"],["prep","📦 prep"],["chicken","Курица"],["beef","Говядина"],["shrimp","Креветки"],["egg","Яйца"],["veg","Овощи"],["sauce","Соусы"],["dessert","Десерты"]].map(([v,l])=>`<button class="chip ${filter===v?"active":""}" data-filter="${v}">${l}</button>`).join("")}
+      </div>
+      <div class="section-head"><h2>Рецепты</h2><small>${arr.length} найдено</small></div>
+      ${arr.length?`<div class="grid">${arr.map((r,i)=>card(r,i)).join("")}</div>`:`<div class="empty">Ничего не нашли. Попробуй другой запрос.</div>`}
+      <section class="panel"><div class="actions"><button class="primary" data-action="add">＋ Добавить новый</button><button class="secondary" data-action="export">Экспорт моих рецептов</button><button class="secondary" data-action="import">Импорт JSON</button></div></section>`;
+  }
+
+  function renderSaved(){
+    const arr=allRecipes().filter(r=>saved.has(r.n));
+    return `<div class="section-head"><h2>Сохранённое</h2><small>${arr.length}</small></div>
+      ${arr.length?`<div class="grid">${arr.map((r,i)=>card(r,i)).join("")}</div>`:`<div class="empty">Пока пусто. Нажимай «сохранить» на понравившихся рецептах.</div>`}
+      <section class="panel"><h3>Твои рецепты</h3><p style="font-weight:700;color:#5d5750">Свои рецепты живут отдельно от основной книги, чтобы их можно было редактировать и экспортировать.</p><button class="primary" data-action="add">Добавить свой рецепт</button></section>`;
+  }
+
+  function renderShop(){
+    const checkedCount=shop.filter(x=>x.done).length;
+    return `<div class="section-head"><h2>Закупка</h2><small>${shop.length} позиций</small></div>
+      <div class="actions"><button class="primary" data-action="base">＋ Добавить базу</button><button class="secondary" data-action="clearDone">Убрать купленное</button><button class="danger" data-action="clearShop">Очистить</button></div>
+      <section class="panel"><h3>Что купить</h3><div class="list">${shop.length?shop.map((x,i)=>`<label class="row ${x.done?"done":""}"><input type="checkbox" data-shop="${i}" ${x.done?"checked":""}><span>${esc(x.name)}</span><span class="qty">${esc(x.qty||"")}</span></label>`).join(""):`<div class="empty">Закупка пуста. Открой рецепт и нажми «Добавить ингредиенты».</div>`}</div></section>`;
+  }
+
+  function render(){
+    safeWrite(keyTab,tab);
+    if(tab==="today") main.innerHTML=renderToday();
+    if(tab==="recipes") main.innerHTML=renderRecipes();
+    if(tab==="saved") main.innerHTML=renderSaved();
+    if(tab==="shop") main.innerHTML=renderShop();
+    document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));
+    bind();
+  }
+
+  function openRecipe(name){
+    const r=allRecipes().find(x=>x.n===name); if(!r)return;
+    const savedNow=saved.has(r.n);
+    $("#sheet").innerHTML=`<div class="sheet-top"><b>РЕЦЕПТ</b><button class="close" data-action="close">×</button></div>
+      <div class="detail">
+        <div class="detail-art">${art(r,hash(r.n),true)}</div>
+        <div style="display:flex;align-items:flex-start;gap:8px"><div style="flex:1"><h2>${esc(r.n)}</h2><div class="desc">${esc(r.d||"")}</div></div><button class="fav" data-action="fav" data-name="${esc(r.n)}">${savedNow?"♥":"♡"}</button></div>
+        <div class="stats"><div class="stat"><b>${esc(mealLabel(r))}</b><small>режим</small></div><div class="stat"><b>${esc(r.k||"—")}</b><small>ккал/порция</small></div><div class="stat"><b>${esc(r.density||"—")}</b><small>плотность</small></div></div>
+        <div class="actions"><button class="primary" data-action="addShop" data-name="${esc(r.n)}">＋ В закупку</button>${userRecipes.some(x=>x.n===r.n)?`<button class="secondary" data-action="deleteRecipe" data-name="${esc(r.n)}">Удалить мой рецепт</button>`:""}</div>
+        <h3>Ингредиенты</h3><ul>${(r.ing||[]).map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+        <h3>Как готовить</h3><ol>${(r.steps||[]).map(x=>`<li>${esc(x)}</li>`).join("")}</ol>
+      </div>`;
+    $("#modal").classList.add("open"); $("#modal").setAttribute("aria-hidden","false");
+    if(tg){try{tg.BackButton.show();tg.BackButton.onClick(closeModal)}catch(e){}}
+  }
+  function closeModal(){
+    $("#modal").classList.remove("open"); $("#modal").setAttribute("aria-hidden","true");
+    if(tg){try{tg.BackButton.hide();tg.BackButton.offClick(closeModal)}catch(e){}}
+  }
+
+  function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),1800)}
+  function saveState(){safeWrite(keySaved,[...saved]);safeWrite(keyShop,shop);safeWrite(keyRecipes,userRecipes)}
+
+  const permanentBase=["куриное филе/бедро","говядина","говяжий фарш","креветки","яйца","тунец консервированный","куриная печень","свинина для BBQ","греческий йогурт","творог","твёрдый сыр/пармезан","фета","сливки","сметана","творожный сыр","сливочное масло","лук","чеснок","морковь","болгарский перец","кабачок","брокколи","грибы","томаты/черри","картофель","зелень","лимоны","паста/спагетти","рис","гречка","булгур","лапша/рамен","соевый соус","горчица","пасcата/томат","томатная паста","песто","мёд","коричневый сахар","масло","яблочный уксус","куриный бульон","кунжут","кимчи","квашеная капуста","корнишоны","ферментированные овощи","корейская морковь","соль","чёрный перец","копчёная паприка","паприка","сухие травы","корица","ваниль","разрыхлитель","шоколад"];
+
+  function addToShop(r){
+    (r.ing||[]).forEach(raw=>{
+      const name=String(raw).replace(/^\d+[\d\s–—-]*\s*(г|кг|мл|л|шт|ст\.?\s*л\.?|ч\.?\s*л\.?)?\s*/i,"").replace(/\s+—.*$/,"").trim();
+      if(!name || /по желанию|не указаны/i.test(name)) return;
+      if(!shop.some(x=>x.name.toLowerCase()===name.toLowerCase())) shop.push({name,qty:"",done:false});
+    });
+    saveState(); toast("Ингредиенты добавлены"); if(tab==="shop")render();
+  }
+  function addBase(){
+    permanentBase.forEach(name=>{if(!shop.some(x=>x.name.toLowerCase()===name.toLowerCase()))shop.push({name,qty:"",done:false})});
+    saveState();toast("База добавлена в закупку");render();
+  }
+
+  function form(){
+    $("#sheet").innerHTML=`<div class="sheet-top"><b>НОВЫЙ РЕЦЕПТ</b><button class="close" data-action="close">×</button></div>
+      <form id="recipeForm" class="form">
+        <div class="field"><label>Название</label><input name="n" required placeholder="Например, паста с креветками"></div>
+        <div class="field"><label>Коротко о блюде</label><textarea name="d" placeholder="Что это за рецепт и почему мы его любим?"></textarea></div>
+        <div class="form-grid"><div class="field"><label>Время, минут</label><input name="mins" type="number" min="1" max="999" value="30"></div><div class="field"><label>Ккал/порция</label><input name="k" type="number" min="0" max="5000" placeholder="примерно"></div></div>
+        <div class="field"><label>Белок / категория</label><select name="p"><option value="chicken">Курица</option><option value="beef">Говядина</option><option value="pork">Свинина</option><option value="shrimp">Креветки</option><option value="egg">Яйца</option><option value="tuna">Тунец</option><option value="veg">Овощи</option></select></div>
+        <div class="field"><label>Ингредиенты — по одному в строке</label><textarea name="ing" required placeholder="300 г курицы&#10;200 г пасты&#10;150 г грибов"></textarea></div>
+        <div class="field"><label>Приготовление — шаги по одному в строке</label><textarea name="steps" required placeholder="Нарезать курицу&#10;Обжарить&#10;Добавить соус"></textarea></div>
+        <div class="actions"><button class="primary" type="submit">Сохранить рецепт</button><button class="secondary" type="button" data-action="close">Отмена</button></div>
+      </form>`;
+    $("#recipeForm").addEventListener("submit",e=>{
+      e.preventDefault();
+      const f=new FormData(e.currentTarget), n=String(f.get("n")||"").trim();
+      if(!n)return;
+      const mins=Math.max(1,Math.min(999,Number(f.get("mins"))||30));
+      const time=mins<=20?"quick":mins<=40?"normal":mins<=60?"cook":"prep";
+      const r={n,e:"🍽️",time,p:String(f.get("p")),type:"dish",mins,k:String(f.get("k")||"—"),m:"",density:"B",img:"",tags:["мой рецепт"],d:String(f.get("d")||"").trim(),ing:String(f.get("ing")||"").split(/\n+/).map(x=>x.trim()).filter(Boolean),steps:String(f.get("steps")||"").split(/\n+/).map(x=>x.trim()).filter(Boolean),user:true};
+      if(allRecipes().some(x=>x.n.toLowerCase()===n.toLowerCase())){toast("Такой рецепт уже есть");return}
+      userRecipes.push(r);saved.add(r.n);saveState();closeModal();tab="saved";render();toast("Рецепт добавлен ✦");
+    });
+  }
+
+  function exportUser(){
+    const blob=new Blob([JSON.stringify(userRecipes,null,2)],{type:"application/json"});
+    const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="kuking-tudey-my-recipes.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500);
+  }
+  function importUser(){
+    const inp=document.createElement("input");inp.type="file";inp.accept=".json,application/json";
+    inp.onchange=()=>{const f=inp.files&&inp.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{const arr=JSON.parse(rd.result);if(!Array.isArray(arr))throw Error();userRecipes=[...userRecipes,...arr.filter(x=>x&&x.n&&!allRecipes().some(y=>y.n===x.n))];saveState();render();toast("Импорт готов");}catch(e){toast("Не удалось прочитать JSON")}};rd.readAsText(f)};inp.click();
+  }
+
+  function bind(){
+    document.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>{tab=b.dataset.tab;render()});
+    document.querySelectorAll("[data-filter]").forEach(b=>b.onclick=()=>{filter=b.dataset.filter;tab="recipes";render()});
+    document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openRecipe(b.dataset.open));
+    document.querySelectorAll("[data-shop]").forEach(i=>i.onchange=()=>{shop[Number(i.dataset.shop)].done=i.checked;saveState()});
+    const q=$("#q"); if(q){q.oninput=()=>{query=q.value;renderRecipes();bind();const nq=$("#q");if(nq){nq.focus();nq.setSelectionRange(query.length,query.length)}}}
+    document.querySelectorAll("[data-action]").forEach(b=>b.onclick=()=>{
+      const a=b.dataset.action;
+      if(a==="close")closeModal();
+      if(a==="add"){$("#modal").classList.add("open");form()}
+      if(a==="fav"){const n=b.dataset.name;saved.has(n)?saved.delete(n):saved.add(n);saveState();openRecipe(n)}
+      if(a==="addShop"){const r=allRecipes().find(x=>x.n===b.dataset.name);if(r)addToShop(r)}
+      if(a==="base")addBase();
+      if(a==="clearDone"){shop=shop.filter(x=>!x.done);saveState();render()}
+      if(a==="clearShop"){shop=[];saveState();render()}
+      if(a==="clearq"){query="";render()}
+      if(a==="export")exportUser();
+      if(a==="import")importUser();
+      if(a==="deleteRecipe"){const n=b.dataset.name;userRecipes=userRecipes.filter(x=>x.n!==n);saved.delete(n);saveState();closeModal();render()}
+    });
+  }
+
+  $("#modal").addEventListener("click",e=>{if(e.target.id==="modal")closeModal()});
+  render();
+})();
+</script>
+</body>
+</html>

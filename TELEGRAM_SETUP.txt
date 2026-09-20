@@ -1,0 +1,10 @@
+КУКИНГ ТУДЕЙ — быстрый чек-лист Telegram
+
+1. Создать бота: @BotFather → /newbot
+2. Включить Mini App: Bot Settings → Configure Mini App → Enable Mini App
+3. Указать HTTPS URL опубликованного index.html
+4. Настроить Menu Button на тот же URL
+5. Открыть бота и нажать кнопку Mini App
+
+Официальная документация Telegram:
+https://core.telegram.org/bots/webapps
