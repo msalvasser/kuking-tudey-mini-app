@@ -9,7 +9,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "650",
     "m": "Б 28 · Ж 30 · У 64",
     "density": "D",
-    "img": "https://images.unsplash.com/photo-1755594461640-b800c6bafdfa?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/carbonara,pasta,bacon,egg?lock=1701",
     "tags": [
       "паста",
       "бекон",
@@ -42,7 +42,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "590",
     "m": "Б 34 · Ж 18 · У 69",
     "density": "C",
-    "img": "https://images.unsplash.com/photo-1778851793893-10f3c1c3e11a?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/chicken,mushroom,pasta?lock=1702",
     "tags": [
       "паста",
       "грибы",
@@ -73,7 +73,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "590",
     "m": "Б 31 · Ж 20 · У 69",
     "density": "D",
-    "img": "https://images.unsplash.com/photo-1762631934518-f75e233413ca?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/beef,pasta,tomato?lock=1703",
     "tags": [
       "фарш",
       "паста",
@@ -108,7 +108,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "330",
     "m": "Б 60 · Ж 7 · У 0",
     "density": "A",
-    "img": "https://images.unsplash.com/photo-1762631383412-f3069278a6ff?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/chicken,parchment,grilled?lock=1704",
     "tags": [
       "курица",
       "быстро"
@@ -136,7 +136,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "560",
     "m": "Б 31 · Ж 21 · У 61",
     "density": "C",
-    "img": "https://images.unsplash.com/photo-1762631934518-f75e233413ca?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/tuna,pasta,cornichon?lock=1705",
     "tags": [
       "тунец",
       "паста",
@@ -166,7 +166,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "390",
     "m": "Б 23 · Ж 25 · У 20",
     "density": "B",
-    "img": "https://images.unsplash.com/photo-1762631934518-f75e233413ca?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/shakshuka,eggs,tomato?lock=1706",
     "tags": [
       "яйца",
       "томат",
@@ -197,7 +197,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "300",
     "m": "Б 36 · Ж 10 · У 15",
     "density": "A",
-    "img": "https://images.unsplash.com/photo-1761314025611-957a20e3e8a3?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/shrimp,vegetables,pan?lock=1707",
     "tags": [
       "креветки",
       "овощи",
@@ -227,7 +227,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "420",
     "m": "Б 39 · Ж 19 · У 18",
     "density": "B",
-    "img": "https://images.unsplash.com/photo-1761064864532-1794a1f8f784?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/beef,soy,ginger?lock=1708",
     "tags": [
       "говядина",
       "соевый соус",
@@ -258,7 +258,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "520",
     "m": "Б 33 · Ж 9 · У 76",
     "density": "B",
-    "img": "https://images.unsplash.com/photo-1761314025611-957a20e3e8a3?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/shrimp,rice,vegetables?lock=1709",
     "tags": [
       "рис",
       "овощи",
@@ -288,7 +288,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "500",
     "m": "Б 31 · Ж 13 · У 62",
     "density": "B",
-    "img": "https://images.unsplash.com/photo-1764475524668-902633e28a44?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/shrimp,ramen,noodles?lock=1710",
     "tags": [
       "рамен",
       "креветки",
@@ -320,7 +320,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "390",
     "m": "Б 42 · Ж 12 · У 29",
     "density": "B",
-    "img": "https://images.unsplash.com/photo-1762631383412-f3069278a6ff?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/asian,chicken,vegetables?lock=1711",
     "tags": [
       "курица",
       "овощи",
@@ -350,7 +350,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "350",
     "m": "Б 43 · Ж 12 · У 15",
     "density": "A",
-    "img": "https://images.unsplash.com/photo-1762631383412-f3069278a6ff?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/broccoli,chicken,yogurt?lock=1712",
     "tags": [
       "брокколи",
       "курица",
@@ -381,7 +381,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "500",
     "m": "Б 23 · Ж 25 · У 43",
     "density": "D",
-    "img": "https://images.unsplash.com/photo-1762631934518-f75e233413ca?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/potato,mushroom,egg?lock=1713",
     "tags": [
       "картофель",
       "грибы",
@@ -412,7 +412,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "330",
     "m": "Б 38 · Ж 12 · У 18",
     "density": "B",
-    "img": "https://images.unsplash.com/photo-1762631383412-f3069278a6ff?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/chicken,liver,mustard?lock=1714",
     "tags": [
       "печень",
       "йогурт",
@@ -443,7 +443,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "520",
     "m": "Б 50 · Ж 17 · У 42",
     "density": "B",
-    "img": "https://images.unsplash.com/photo-1762631383412-f3069278a6ff?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/buckwheat,chicken?lock=1715",
     "tags": [
       "meal prep",
       "гречка",
@@ -473,7 +473,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "390",
     "m": "Б 48 · Ж 16 · У 14",
     "density": "B",
-    "img": "https://images.unsplash.com/photo-1762631383412-f3069278a6ff?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/chicken,mushroom,broccoli,casserole?lock=1716",
     "tags": [
       "meal prep",
       "запеканка"
@@ -505,7 +505,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "500",
     "m": "Б 45 · Ж 20 · У 35",
     "density": "C",
-    "img": "https://images.unsplash.com/photo-1762631383412-f3069278a6ff?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/chicken,mushroom,potato,casserole?lock=1717",
     "tags": [
       "картофель",
       "грибы",
@@ -539,7 +539,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "558*",
     "m": "Б 50 · Ж 33 · У 13",
     "density": "D",
-    "img": "https://images.unsplash.com/photo-1762631934518-f75e233413ca?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/pulled,pork,bbq?lock=1718",
     "tags": [
       "BBQ",
       "заготовка",
@@ -573,7 +573,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "450–650",
     "m": "Б 30–45 · Ж 12–25 · У 40–70",
     "density": "B",
-    "img": "https://images.unsplash.com/photo-1762631934518-f75e233413ca?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/chicken,bowl,avocado?lock=1719",
     "tags": [
       "булгур",
       "рис",
@@ -607,7 +607,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "—",
     "m": "—",
     "density": "B",
-    "img": "https://images.unsplash.com/photo-1762631934518-f75e233413ca?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/soy,ginger,sauce?lock=1720",
     "tags": [
       "соус",
       "соевый",
@@ -636,7 +636,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "270",
     "m": "Б 5 · Ж 13 · У 34",
     "density": "D",
-    "img": "https://images.unsplash.com/photo-1776940486660-075c0d30f036?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/banana,bread,chocolate?lock=1721",
     "tags": [
       "банан",
       "шоколад",
@@ -675,7 +675,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "330",
     "m": "Б 4 · Ж 17 · У 40",
     "density": "D",
-    "img": "https://images.unsplash.com/photo-1776940486660-075c0d30f036?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/apple,strudel?lock=1722",
     "tags": [
       "яблоки",
       "изюм",
@@ -709,7 +709,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "430",
     "m": "Б 35 · Ж 21 · У 25",
     "density": "C",
-    "img": "https://images.unsplash.com/photo-1768187067375-4cd5a79fec41?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/beef,meatballs,tomato?lock=1723",
     "tags": [
       "говядина",
       "томат",
@@ -745,7 +745,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "430",
     "m": "Б 42 · Ж 21 · У 13",
     "density": "B",
-    "img": "https://images.unsplash.com/photo-1761064864532-1794a1f8f784?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/beef,mushroom,yogurt?lock=1724",
     "tags": [
       "говядина",
       "грибы",
@@ -779,7 +779,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "570",
     "m": "Б 38 · Ж 17 · У 63",
     "density": "B",
-    "img": "https://images.unsplash.com/photo-1761064864532-1794a1f8f784?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/beef,vegetables,rice?lock=1725",
     "tags": [
       "говядина",
       "рис",
@@ -811,7 +811,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "600",
     "m": "Б 35 · Ж 17 · У 76",
     "density": "C",
-    "img": "https://images.unsplash.com/photo-1761314025611-957a20e3e8a3?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/garlic,shrimp,pasta?lock=1726",
     "tags": [
       "креветки",
       "паста",
@@ -846,7 +846,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "330",
     "m": "Б 10 · Ж 20 · У 27",
     "density": "B",
-    "img": "https://images.unsplash.com/photo-1762631934518-f75e233413ca?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/roasted,vegetables,feta?lock=1727",
     "tags": [
       "овощи",
       "фета",
@@ -879,7 +879,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "430",
     "m": "Б 55 · Ж 17 · У 8",
     "density": "B",
-    "img": "https://images.unsplash.com/photo-1762631383412-f3069278a6ff?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/chicken,cottage,cheese,tomato?lock=1728",
     "tags": [
       "курица",
       "творог",
@@ -913,7 +913,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "220",
     "m": "Б 7 · Ж 17 · У 11",
     "density": "B",
-    "img": "https://images.unsplash.com/photo-1762631934518-f75e233413ca?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/mushrooms,sour,cream?lock=1729",
     "tags": [
       "грибы",
       "сметана",
@@ -940,7 +940,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "300",
     "m": "Б 28 · Ж 9 · У 27",
     "density": "B",
-    "img": "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/chicken,soup,noodles?lock=1730",
     "tags": [
       "суп",
       "курица",
@@ -975,7 +975,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "350",
     "m": "Б 30 · Ж 16 · У 20",
     "density": "B",
-    "img": "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/vegetable,cream,soup,chicken?lock=1731",
     "tags": [
       "суп",
       "овощи",
@@ -1008,7 +1008,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "390",
     "m": "Б 27 · Ж 18 · У 31",
     "density": "C",
-    "img": "https://images.unsplash.com/photo-1761315631965-dc7c307a9c66?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/stuffed,bell,peppers?lock=1732",
     "tags": [
       "перцы",
       "фарш",
@@ -1042,7 +1042,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "400",
     "m": "Б 27 · Ж 18 · У 32",
     "density": "C",
-    "img": "https://images.unsplash.com/photo-1761064864532-1794a1f8f784?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/stuffed,onion,meat?lock=1733",
     "tags": [
       "лук",
       "фарш",
@@ -1074,7 +1074,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "—",
     "m": "—",
     "density": "A",
-    "img": "https://unsplash.com/photos/M_mDgb8guhA/download?force=true",
+    "img": "https://loremflickr.com/1000/760/kimchi,sauerkraut,pickles?lock=1734",
     "tags": [
       "ферментированное",
       "кимчи",
@@ -1102,7 +1102,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "70",
     "m": "Б 7 · Ж 3 · У 4",
     "density": "A",
-    "img": "https://images.unsplash.com/photo-1762631934518-f75e233413ca?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/yogurt,garlic,sauce?lock=1735",
     "tags": [
       "соус",
       "йогурт",
@@ -1129,7 +1129,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "75",
     "m": "Б 7 · Ж 3 · У 5",
     "density": "A",
-    "img": "https://images.unsplash.com/photo-1762631934518-f75e233413ca?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/yogurt,mustard,sauce?lock=1736",
     "tags": [
       "соус",
       "горчица",
@@ -1156,7 +1156,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "80",
     "m": "Б 2 · Ж 2 · У 13",
     "density": "A",
-    "img": "https://images.unsplash.com/photo-1762631934518-f75e233413ca?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/tomato,sauce?lock=1737",
     "tags": [
       "соус",
       "томат",
@@ -1187,7 +1187,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "120",
     "m": "Б 5 · Ж 9 · У 4",
     "density": "B",
-    "img": "https://images.unsplash.com/photo-1762631934518-f75e233413ca?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/pesto,yogurt,sauce?lock=1738",
     "tags": [
       "соус",
       "песто",
@@ -1213,7 +1213,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "65",
     "m": "Б 7 · Ж 2 · У 5",
     "density": "A",
-    "img": "https://images.unsplash.com/photo-1762631934518-f75e233413ca?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/spicy,yogurt,sauce?lock=1739",
     "tags": [
       "соус",
       "острый",
@@ -1240,7 +1240,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "610",
     "m": "Б 34 · Ж 19 · У 76",
     "density": "C",
-    "img": "https://images.unsplash.com/photo-1597933856545-b9ee519aa0ec?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/bolognese,spaghetti?lock=1740",
     "tags": [
       "паста",
       "фарш",
@@ -1270,7 +1270,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "260",
     "m": "Б 8 · Ж 20 · У 13",
     "density": "B",
-    "img": "https://images.unsplash.com/photo-1762631934518-f75e233413ca?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/zucchini,mushrooms,pesto?lock=1741",
     "tags": [
       "кабачок",
       "грибы",
@@ -1300,7 +1300,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "260",
     "m": "Б 40 · Ж 8 · У 5",
     "density": "A",
-    "img": "https://images.unsplash.com/photo-1762631934518-f75e233413ca?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/tuna,sesame?lock=1742",
     "tags": [
       "тунец",
       "соевый соус",
@@ -1329,7 +1329,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "250",
     "m": "—",
     "density": "D",
-    "img": "https://images.unsplash.com/photo-1776940486660-075c0d30f036?auto=format&fit=crop&fm=jpg&q=82&w=1200",
+    "img": "https://loremflickr.com/1000/760/charlotte,apple,pie?lock=1743",
     "tags": [
       "десерт",
       "яблоки",
