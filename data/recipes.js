@@ -9,7 +9,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "650",
     "m": "Б 28 · Ж 30 · У 64",
     "density": "D",
-    "img": "",
+    "img": "assets/food/01-карбонара.png",
     "tags": [
       "паста",
       "бекон",
@@ -42,7 +42,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "590",
     "m": "Б 34 · Ж 18 · У 69",
     "density": "C",
-    "img": "",
+    "img": "assets/food/02-паста-с-курицей-и-грибами.png",
     "tags": [
       "паста",
       "грибы",
@@ -73,7 +73,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "590",
     "m": "Б 31 · Ж 20 · У 69",
     "density": "D",
-    "img": "",
+    "img": "assets/food/03-макароны-по-флотски.png",
     "tags": [
       "фарш",
       "паста",
@@ -108,7 +108,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "330",
     "m": "Б 60 · Ж 7 · У 0",
     "density": "A",
-    "img": "",
+    "img": "assets/food/04-курица-в-пергаменте.png",
     "tags": [
       "курица",
       "быстро"
@@ -136,7 +136,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "560",
     "m": "Б 31 · Ж 21 · У 61",
     "density": "C",
-    "img": "",
+    "img": "assets/food/05-тунец-с-пастой.png",
     "tags": [
       "тунец",
       "паста",
@@ -166,7 +166,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "390",
     "m": "Б 23 · Ж 25 · У 20",
     "density": "B",
-    "img": "",
+    "img": "assets/food/06-шакшука.png",
     "tags": [
       "яйца",
       "томат",
@@ -197,7 +197,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "300",
     "m": "Б 36 · Ж 10 · У 15",
     "density": "A",
-    "img": "",
+    "img": "assets/food/07-креветки-с-овощами.png",
     "tags": [
       "креветки",
       "овощи",
@@ -227,7 +227,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "420",
     "m": "Б 39 · Ж 19 · У 18",
     "density": "B",
-    "img": "",
+    "img": "assets/food/08-говядина-в-соево-имбирном-соусе.png",
     "tags": [
       "говядина",
       "соевый соус",
@@ -258,7 +258,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "520",
     "m": "Б 33 · Ж 9 · У 76",
     "density": "B",
-    "img": "",
+    "img": "assets/food/09-креветки-рис-овощи.png",
     "tags": [
       "рис",
       "овощи",
@@ -288,7 +288,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "500",
     "m": "Б 31 · Ж 13 · У 62",
     "density": "B",
-    "img": "",
+    "img": "assets/food/10-домашний-лeгкий-рамен-с-креветками.png",
     "tags": [
       "рамен",
       "креветки",
@@ -320,7 +320,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "390",
     "m": "Б 42 · Ж 12 · У 29",
     "density": "B",
-    "img": "",
+    "img": "assets/food/11-азиатские-овощи-с-курицей.png",
     "tags": [
       "курица",
       "овощи",
@@ -350,7 +350,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "350",
     "m": "Б 43 · Ж 12 · У 15",
     "density": "A",
-    "img": "",
+    "img": "assets/food/12-брокколи-с-курицей-и-йогуртовым-соусом.png",
     "tags": [
       "брокколи",
       "курица",
@@ -381,7 +381,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "500",
     "m": "Б 23 · Ж 25 · У 43",
     "density": "D",
-    "img": "",
+    "img": "assets/food/13-картофель-грибы-яйцо-сыр.png",
     "tags": [
       "картофель",
       "грибы",
@@ -412,7 +412,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "330",
     "m": "Б 38 · Ж 12 · У 18",
     "density": "B",
-    "img": "",
+    "img": "assets/food/14-куриная-печень-в-йогуртово-горчичном-соусе.png",
     "tags": [
       "печень",
       "йогурт",
@@ -443,7 +443,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "520",
     "m": "Б 50 · Ж 17 · У 42",
     "density": "B",
-    "img": "",
+    "img": "assets/food/15-гречка-курица-контейнеры.png",
     "tags": [
       "meal prep",
       "гречка",
@@ -473,7 +473,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "390",
     "m": "Б 48 · Ж 16 · У 14",
     "density": "B",
-    "img": "",
+    "img": "assets/food/16-запеканка-курица-грибы-брокколи.png",
     "tags": [
       "meal prep",
       "запеканка"
@@ -505,7 +505,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "500",
     "m": "Б 45 · Ж 20 · У 35",
     "density": "C",
-    "img": "",
+    "img": "assets/food/17-запеканка-курица-грибы-картофель.png",
     "tags": [
       "картофель",
       "грибы",
@@ -539,7 +539,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "558*",
     "m": "Б 50 · Ж 33 · У 13",
     "density": "D",
-    "img": "",
+    "img": "assets/food/18-рваная-свинина-bbq.png",
     "tags": [
       "BBQ",
       "заготовка",
@@ -573,7 +573,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "450–650",
     "m": "Б 30–45 · Ж 12–25 · У 40–70",
     "density": "B",
-    "img": "",
+    "img": "assets/food/19-боул-конструктор.png",
     "tags": [
       "булгур",
       "рис",
@@ -607,7 +607,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "—",
     "m": "—",
     "density": "B",
-    "img": "",
+    "img": "assets/food/20-соево-имбирный-соус.png",
     "tags": [
       "соус",
       "соевый",
@@ -636,7 +636,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "270",
     "m": "Б 5 · Ж 13 · У 34",
     "density": "D",
-    "img": "",
+    "img": "assets/food/21-банановый-хлеб.png",
     "tags": [
       "банан",
       "шоколад",
@@ -675,7 +675,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "330",
     "m": "Б 4 · Ж 17 · У 40",
     "density": "D",
-    "img": "",
+    "img": "assets/food/22-яблочный-штрудель.png",
     "tags": [
       "яблоки",
       "изюм",
@@ -709,7 +709,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "430",
     "m": "Б 35 · Ж 21 · У 25",
     "density": "C",
-    "img": "",
+    "img": "assets/food/23-говяжьи-фрикадельки-в-томатном-соусе.png",
     "tags": [
       "говядина",
       "томат",
@@ -745,7 +745,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "430",
     "m": "Б 42 · Ж 21 · У 13",
     "density": "B",
-    "img": "",
+    "img": "assets/food/24-говядина-с-грибами-в-йогуртовом-соусе.png",
     "tags": [
       "говядина",
       "грибы",
@@ -779,7 +779,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "570",
     "m": "Б 38 · Ж 17 · У 63",
     "density": "B",
-    "img": "",
+    "img": "assets/food/25-говядина-овощи-рис.png",
     "tags": [
       "говядина",
       "рис",
@@ -811,7 +811,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "600",
     "m": "Б 35 · Ж 17 · У 76",
     "density": "C",
-    "img": "",
+    "img": "assets/food/26-чесночные-креветки-с-пастой.png",
     "tags": [
       "креветки",
       "паста",
@@ -846,7 +846,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "330",
     "m": "Б 10 · Ж 20 · У 27",
     "density": "B",
-    "img": "",
+    "img": "assets/food/27-запечeнные-овощи-с-фетой.png",
     "tags": [
       "овощи",
       "фета",
@@ -879,7 +879,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "430",
     "m": "Б 55 · Ж 17 · У 8",
     "density": "B",
-    "img": "",
+    "img": "assets/food/28-курица-творог-черри.png",
     "tags": [
       "курица",
       "творог",
@@ -913,7 +913,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "220",
     "m": "Б 7 · Ж 17 · У 11",
     "density": "B",
-    "img": "",
+    "img": "assets/food/29-шампиньоны-в-сметане.png",
     "tags": [
       "грибы",
       "сметана",
@@ -940,7 +940,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "300",
     "m": "Б 28 · Ж 9 · У 27",
     "density": "B",
-    "img": "",
+    "img": "assets/food/30-куриный-суп.png",
     "tags": [
       "суп",
       "курица",
@@ -975,7 +975,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "350",
     "m": "Б 30 · Ж 16 · У 20",
     "density": "B",
-    "img": "",
+    "img": "assets/food/31-овощной-крем-суп-с-курицей.png",
     "tags": [
       "суп",
       "овощи",
@@ -1008,7 +1008,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "390",
     "m": "Б 27 · Ж 18 · У 31",
     "density": "C",
-    "img": "",
+    "img": "assets/food/32-фаршированные-перцы.png",
     "tags": [
       "перцы",
       "фарш",
@@ -1042,7 +1042,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "400",
     "m": "Б 27 · Ж 18 · У 32",
     "density": "C",
-    "img": "",
+    "img": "assets/food/33-фаршированный-лук.png",
     "tags": [
       "лук",
       "фарш",
@@ -1074,7 +1074,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "—",
     "m": "—",
     "density": "A",
-    "img": "",
+    "img": "assets/food/34-кимчи-квашеная-капуста-корнишоны.png",
     "tags": [
       "ферментированное",
       "кимчи",
@@ -1102,7 +1102,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "70",
     "m": "Б 7 · Ж 3 · У 4",
     "density": "A",
-    "img": "",
+    "img": "assets/food/35-йогуртово-чесночный-соус.png",
     "tags": [
       "соус",
       "йогурт",
@@ -1129,7 +1129,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "75",
     "m": "Б 7 · Ж 3 · У 5",
     "density": "A",
-    "img": "",
+    "img": "assets/food/36-йогуртово-горчичный-соус.png",
     "tags": [
       "соус",
       "горчица",
@@ -1156,7 +1156,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "80",
     "m": "Б 2 · Ж 2 · У 13",
     "density": "A",
-    "img": "",
+    "img": "assets/food/37-быстрый-томатный-соус.png",
     "tags": [
       "соус",
       "томат",
@@ -1187,7 +1187,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "120",
     "m": "Б 5 · Ж 9 · У 4",
     "density": "B",
-    "img": "",
+    "img": "assets/food/38-песто-йогуртовый-соус.png",
     "tags": [
       "соус",
       "песто",
@@ -1213,7 +1213,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "65",
     "m": "Б 7 · Ж 2 · У 5",
     "density": "A",
-    "img": "",
+    "img": "assets/food/39-острый-йогуртовый-соус.png",
     "tags": [
       "соус",
       "острый",
@@ -1240,7 +1240,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "610",
     "m": "Б 34 · Ж 19 · У 76",
     "density": "C",
-    "img": "",
+    "img": "assets/food/40-болоньезе.png",
     "tags": [
       "паста",
       "фарш",
@@ -1270,7 +1270,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "260",
     "m": "Б 8 · Ж 20 · У 13",
     "density": "B",
-    "img": "",
+    "img": "assets/food/41-кабачки-с-грибами.png",
     "tags": [
       "кабачок",
       "грибы",
@@ -1300,7 +1300,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "260",
     "m": "Б 40 · Ж 8 · У 5",
     "density": "A",
-    "img": "",
+    "img": "assets/food/42-тунец-с-кунжутом.png",
     "tags": [
       "тунец",
       "соевый соус",
@@ -1329,7 +1329,7 @@ window.COOKING_TODAY_RECIPES = [
     "k": "250",
     "m": "—",
     "density": "D",
-    "img": "",
+    "img": "assets/food/43-шарлотка.png",
     "tags": [
       "десерт",
       "яблоки",
