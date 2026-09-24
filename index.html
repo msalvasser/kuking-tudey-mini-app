@@ -138,7 +138,92 @@ body{overflow-x:hidden}
 .toast{background:var(--lime)!important;color:#111!important;border:2px solid #111!important;border-radius:999px!important;box-shadow:4px 4px 0 #000!important;font-weight:900!important}
 
 @media(max-width:390px){.brand{font-size:38px}.top-note{font-size:15px}.hero{min-height:485px}.hero h1{font-size:58px}.hero-photo-wrap{width:79%;height:62%;bottom:29px}.section-head h2{font-size:39px}.title{font-size:26px}.art{height:158px}.detail-title{font-size:46px}}
-</style></head>
+</style>
+<style>
+/* V1.5 — STRUCTURED NEON EDITORIAL LAYOUT
+   Intent: visual chaos lives in the artwork layer; typography/content stay on a strict grid. */
+:root{--grid:12px;--radius:22px;--paper:#f5f0e6;--paper2:#ebe4d8;--lime:#cfff38;--pink:#ff79c5;--lav:#cdbdff;--ink:#111}
+*{box-sizing:border-box}
+body{overflow-x:hidden}
+/* Decorative marks must never compete with content. */
+.hero,.card,.shop-section,.panel,.detail-hero{isolation:isolate}
+.hero>*{pointer-events:none}
+.hero h1,.hero-sub,.tape,.hero-star,.scribble{pointer-events:none}
+.hero h1{max-width:58%;line-height:.78;position:relative;z-index:10}
+.hero-sub{max-width:145px;position:relative;z-index:10}
+.hero-photo-wrap{z-index:3}
+.hero-photo-wrap:after{z-index:4}
+.tape{z-index:12;max-width:145px;text-align:center}
+.hero-star{z-index:12}
+.scribble{z-index:12}
+/* Catalog cards: fixed visual zones = image / title / stats. Nothing crosses the stats row. */
+.grid{align-items:start;gap:14px}
+.card{transform:none!important;border-radius:20px;box-shadow:5px 6px 0 #000;overflow:hidden;background:var(--paper)}
+.card:nth-child(odd){transform:rotate(-.45deg)!important}
+.card:nth-child(even){transform:rotate(.55deg)!important}
+.card:before{left:-17px;bottom:46px;width:60px;height:27px;z-index:8;opacity:.9;pointer-events:none}
+.card:after{right:9px;bottom:10px;z-index:8;pointer-events:none}
+.card button{position:relative;z-index:1}
+.art{height:184px;position:relative;z-index:1}
+.art:after{left:8px;bottom:7px;width:65px;height:21px;z-index:4}
+.scribble-tag{z-index:8;max-width:88px;white-space:nowrap}
+.hand{z-index:8;max-width:95px}
+.card-body{padding:13px 12px 12px;min-height:118px;display:flex;flex-direction:column;position:relative;z-index:3}
+.card-body:before{top:-7px;height:16px;z-index:0;pointer-events:none}
+.eyebrow,.title,.card-foot{position:relative;z-index:2}
+.eyebrow{min-height:13px;line-height:1.1}
+.title{font-size:27px;line-height:.82;margin:6px 0 11px;min-height:45px;display:flex;align-items:flex-start}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:7px;margin-top:auto;min-height:24px;padding-top:7px;border-top:1px solid #cfc7bb}
+.meta{font-size:9px;line-height:1.15;white-space:nowrap;color:#5e5953}
+.meta .dot{padding:0 2px;color:#9b948b}
+.density{flex:0 0 auto;margin:0!important;min-width:26px;text-align:center;padding:4px 6px!important;border-radius:7px!important}
+/* Today hero: decorative layer stays around, not over, the headline. */
+.hero{min-height:500px;padding:22px 17px 20px}
+.hero h1{font-size:clamp(58px,15vw,76px)}
+.hero-sub{margin-top:13px}
+.hero-photo-wrap{right:-15px;bottom:27px;width:69%;height:58%}
+.scribble{left:18px;bottom:27px}
+.hero:before{z-index:1;bottom:65px;left:-55px;width:230px;height:100px}
+.hero:after{z-index:2}
+/* Search/filter hierarchy */
+.section-head{margin-top:27px}
+.filter-title{margin-top:13px;margin-bottom:7px}
+.chips{padding-bottom:5px}
+/* Recipe detail: image first, then a controlled paper title block. */
+.sheet{padding:10px 12px calc(28px + var(--safe));background:var(--paper)}
+.detail-hero{height:292px;margin-bottom:0;border-radius:24px 24px 10px 10px}
+.detail-title{left:14px;right:14px;bottom:12px;max-width:none;font-size:46px;line-height:.8}
+.detail-sticker{z-index:8}
+.detail-hand{margin:0 5px 10px;padding:8px 0 3px;font-size:20px}
+.stats{position:relative;z-index:5;margin:0 0 12px;grid-template-columns:repeat(3,1fr)}
+.stat{min-width:0;padding:9px 5px;background:#fff;border:1px solid #bdb5aa}
+.stat b{font-size:19px;white-space:nowrap}
+.actions{position:relative;z-index:5}
+/* Shopping: preserve editorial energy, but every section has its own clear reading plane. */
+.shop-section{border-radius:20px;box-shadow:5px 5px 0 #000;position:relative}
+.shop-section:before{content:"";position:absolute;z-index:0;right:-5px;top:-8px;width:62px;height:20px;background:var(--pink);transform:rotate(4deg);border:2px solid #111}
+.shop-head,.shop-help,.progress,.shop-list,.manual-add,.shop-section .actions{position:relative;z-index:2}
+.shop-row{min-height:38px}
+.shop-name{line-height:1.15}
+/* Bottom nav remains quiet: the content is the hero, nav is the anchor. */
+.bottom{z-index:90}
+.nav{box-shadow:0 4px 0 #000}
+/* Narrow phones: retain hierarchy rather than squeezing decorations into content. */
+@media(max-width:380px){
+ .app{padding-left:10px;padding-right:10px}
+ .hero{min-height:455px}
+ .hero h1{font-size:55px;max-width:61%}
+ .hero-photo-wrap{width:72%;height:57%;right:-18px}
+ .grid{gap:10px}
+ .art{height:158px}
+ .card-body{min-height:116px;padding:11px 10px}
+ .title{font-size:24px;min-height:41px}
+ .meta{font-size:8px}
+ .detail-hero{height:260px}
+ .detail-title{font-size:41px}
+}
+</style>
+</head>
 <body>
 <div class="app"><header class="top"><div class="brand">КУКИНГ<br>ТУДЕЙ*</div><div class="top-note">готовь<br>с удовольствием <b>♡</b></div></header><main id="main"></main></div>
 <nav class="bottom"><div class="nav"><button data-tab="today" class="active"><span class="nav-icon">⌂</span>Сегодня</button><button data-tab="recipes"><span class="nav-icon">▣</span>Рецепты</button><button data-tab="shop"><span class="nav-icon">🛒</span>Закупка</button><button data-tab="saved"><span class="nav-icon">♡</span>Сохранённое</button></div></nav>
@@ -155,7 +240,7 @@ const all=()=>[...baseRecipes,...userRecipes],$=s=>document.querySelector(s);con
 const meal=r=>({quick:'до 20 мин',normal:'20–40 мин',cook:'40–60 мин',prep:'на несколько дней'}[r.time]||'—');const type=r=>({sauce:'соус',prep:'заготовка',dessert:'десерт',side:'гарнир',constructor:'конструктор'}[r.type]||'блюдо');const prot=p=>({chicken:'курица',beef:'говядина',pork:'свинина',shrimp:'креветки',egg:'яйца',tuna:'тунец',veg:'овощи'}[p]||'');
 function fallback(r){const title=String(r.n||'Блюдо').replace(/[&<>]/g,'');const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="760"><rect width="100%" height="100%" fill="#191919"/><circle cx="720" cy="250" r="230" fill="#ff79c5" opacity=".85"/><circle cx="760" cy="300" r="170" fill="#cfff38" opacity=".55"/><path d="M80 620 Q350 450 700 620 T1050 580" fill="none" stroke="#fff" stroke-width="22"/><text x="70" y="130" fill="#fff" font-family="Arial" font-weight="900" font-size="62">КУКИНГ ТУДЕЙ</text><text x="70" y="700" fill="#cfff38" font-family="Arial" font-weight="900" font-size="56">${title}</text></svg>`;return 'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg)}
 function photo(r){return r.img||fallback(r)}
-function card(r,i){const label=i%4===0?'ХИТ':i%4===1?'ЛЮБИМОЕ':i%4===2?'БЫСТРО':'ДОМАШНИЙ ВКУС';return `<article class="card"><button type="button" data-open="${esc(r.n)}"><div class="art"><img src="${esc(photo(r))}" alt="${esc(r.n)}" loading="lazy" data-fallback="${esc(fallback(r))}"><span class="scribble-tag ${i%2?'pink':''}">${label}</span><span class="hand">${i%3===0?'очень вкусно!':i%3===1?'просто ♥':'попробуй ↓'}</span></div><div class="card-body"><div class="eyebrow"><span>${esc(type(r))}</span><span>${esc(prot(r.p))}</span></div><div class="title">${esc(r.n)}</div><div class="meta">◷ ${esc(r.mins||'—')} мин · ${esc(r.k||'—')} ккал</div><span class="density ${r.density==='D'?'pink':r.density==='A'?'lime':''}">плотность ${esc(r.density||'—')}</span></div></button></article>`}
+function card(r,i){const label=i%4===0?'ХИТ':i%4===1?'ЛЮБИМОЕ':i%4===2?'БЫСТРО':'ДОМАШНИЙ ВКУС';return `<article class="card"><button type="button" data-open="${esc(r.n)}"><div class="art"><img src="${esc(photo(r))}" alt="${esc(r.n)}" loading="lazy" data-fallback="${esc(fallback(r))}"><span class="scribble-tag ${i%2?'pink':''}">${label}</span><span class="hand">${i%3===0?'очень вкусно!':i%3===1?'просто ♥':'попробуй ↓'}</span></div><div class="card-body"><div class="eyebrow"><span>${esc(type(r))}</span><span>${esc(prot(r.p))}</span></div><div class="title">${esc(r.n)}</div><div class="card-foot"><div class="meta">◷ ${esc(r.mins||'—')} мин <span class="dot">·</span> ${esc(r.k||'—')} ккал</div><span class="density ${r.density==='D'?'pink':r.density==='A'?'lime':''}">${esc(r.density||'—')}</span></div></div></button></article>`}
 const timeChips=()=>[['all','Любое'],['quick','⚡ До 20 мин'],['normal','20–40 мин'],['cook','40–60 мин'],['prep','📦 Готовим еду']];const protChips=()=>[['all','Все'],['chicken','Курица'],['beef','Говядина'],['pork','Свинина'],['shrimp','Креветки'],['egg','Яйца'],['tuna','Тунец'],['veg','Овощи']];
 function renderToday(){let arr=all().filter(r=>(timeFilter==='all'||r.time===timeFilter)&&(proteinFilter==='all'||r.p===proteinFilter));if(!arr.length)arr=all();arr=arr.slice().sort((a,b)=>(a.mins||999)-(b.mins||999)).slice(0,8);const hero=arr[0]||all()[0];return `<section class="hero"><div class="tape">ВКУСНО · ПРОСТО · ДОМА</div><div class="hero-star">✳</div><h1>ЧТО БУДЕМ<br><span>ЕСТЬ?</span></h1><div class="hero-sub">выбирай и готовь ↓</div><div class="hero-photo-wrap"><img class="hero-photo" src="${esc(photo(hero))}" alt="${esc(hero.n)}" data-fallback="${esc(fallback(hero))}"></div><div class="scribble">готовь с удовольствием</div></section><div class="filter-title">Быстрый выбор · время</div><div class="chips">${timeChips().map(([v,l])=>`<button class="chip ${timeFilter===v?'active':''}" data-time-filter="${v}">${l}</button>`).join('')}</div><div class="filter-title">Основной ингредиент</div><div class="chips">${protChips().map(([v,l])=>`<button class="chip pink ${proteinFilter===v?'active':''}" data-protein-filter="${v}">${l}</button>`).join('')}</div><div class="section-head"><h2>Сегодня актуально</h2><small>${arr.length} вариантов</small></div><div class="grid">${arr.map(card).join('')}</div>`}
 function matches(r){const q=query.trim().toLowerCase();const hay=[r.n,r.d,r.p,r.type,...(r.tags||[]),...(r.ing||[])].join(' ').toLowerCase();return(!q||hay.includes(q))&&(timeFilter==='all'||r.time===timeFilter)&&(proteinFilter==='all'||r.p===proteinFilter)&&(recipeType==='all'||r.type===recipeType)}
