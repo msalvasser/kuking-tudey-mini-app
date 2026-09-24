@@ -67,8 +67,6 @@ body{overflow-x:hidden}
 .card:nth-child(2n){transform:rotate(.7deg)}
 .card:nth-child(3n){transform:rotate(-.9deg)}
 .card:nth-child(4n){transform:rotate(.35deg)}
-.card:before{content:"";position:absolute;z-index:6;left:-13px;bottom:42px;width:82px;height:45px;background:var(--pink);clip-path:polygon(0 20%,85% 0,100% 72%,18% 100%);transform:rotate(-12deg)}
-.card:after{content:"✦";position:absolute;z-index:7;right:8px;bottom:8px;color:var(--lime);font:700 25px/1 "Caveat";transform:rotate(15deg)}
 .card button{position:relative}
 .art{height:178px;background:#161616;overflow:hidden}
 .art img{object-fit:cover;transform:scale(1.035)}
@@ -161,11 +159,9 @@ body{overflow-x:hidden}
 .card{transform:none!important;border-radius:20px;box-shadow:5px 6px 0 #000;overflow:hidden;background:var(--paper)}
 .card:nth-child(odd){transform:rotate(-.45deg)!important}
 .card:nth-child(even){transform:rotate(.55deg)!important}
-.card:before{left:-17px;bottom:46px;width:60px;height:27px;z-index:8;opacity:.9;pointer-events:none}
-.card:after{right:9px;bottom:10px;z-index:8;pointer-events:none}
 .card button{position:relative;z-index:1}
 .art{height:184px;position:relative;z-index:1}
-.art:after{left:8px;bottom:7px;width:65px;height:21px;z-index:4}
+.art:after{left:8px;bottom:7px;width:65px;height:21px;z-index:4;pointer-events:none}
 .scribble-tag{z-index:8;max-width:88px;white-space:nowrap}
 .hand{z-index:8;max-width:95px}
 .card-body{padding:13px 12px 12px;min-height:118px;display:flex;flex-direction:column;position:relative;z-index:3}
@@ -173,9 +169,10 @@ body{overflow-x:hidden}
 .eyebrow,.title,.card-foot{position:relative;z-index:2}
 .eyebrow{min-height:13px;line-height:1.1}
 .title{font-size:27px;line-height:.82;margin:6px 0 11px;min-height:45px;display:flex;align-items:flex-start}
-.card-foot{display:flex;align-items:center;justify-content:space-between;gap:7px;margin-top:auto;min-height:24px;padding-top:7px;border-top:1px solid #cfc7bb}
-.meta{font-size:9px;line-height:1.15;white-space:nowrap;color:#5e5953}
+.card-foot{display:grid;grid-template-columns:1fr auto;align-items:end;gap:7px;margin-top:auto;min-height:39px;padding-top:7px;border-top:1px solid #cfc7bb}
+.meta{font-size:9px;line-height:1.15;color:#5e5953;white-space:nowrap}
 .meta .dot{padding:0 2px;color:#9b948b}
+.macros{margin-top:4px;font-size:8px;line-height:1.1;font-weight:900;color:#777;letter-spacing:.01em;white-space:nowrap}
 .density{flex:0 0 auto;margin:0!important;min-width:26px;text-align:center;padding:4px 6px!important;border-radius:7px!important}
 /* Today hero: decorative layer stays around, not over, the headline. */
 .hero{min-height:500px;padding:22px 17px 20px}
@@ -240,7 +237,7 @@ const all=()=>[...baseRecipes,...userRecipes],$=s=>document.querySelector(s);con
 const meal=r=>({quick:'до 20 мин',normal:'20–40 мин',cook:'40–60 мин',prep:'на несколько дней'}[r.time]||'—');const type=r=>({sauce:'соус',prep:'заготовка',dessert:'десерт',side:'гарнир',constructor:'конструктор'}[r.type]||'блюдо');const prot=p=>({chicken:'курица',beef:'говядина',pork:'свинина',shrimp:'креветки',egg:'яйца',tuna:'тунец',veg:'овощи'}[p]||'');
 function fallback(r){const title=String(r.n||'Блюдо').replace(/[&<>]/g,'');const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="760"><rect width="100%" height="100%" fill="#191919"/><circle cx="720" cy="250" r="230" fill="#ff79c5" opacity=".85"/><circle cx="760" cy="300" r="170" fill="#cfff38" opacity=".55"/><path d="M80 620 Q350 450 700 620 T1050 580" fill="none" stroke="#fff" stroke-width="22"/><text x="70" y="130" fill="#fff" font-family="Arial" font-weight="900" font-size="62">КУКИНГ ТУДЕЙ</text><text x="70" y="700" fill="#cfff38" font-family="Arial" font-weight="900" font-size="56">${title}</text></svg>`;return 'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg)}
 function photo(r){return r.img||fallback(r)}
-function card(r,i){const label=i%4===0?'ХИТ':i%4===1?'ЛЮБИМОЕ':i%4===2?'БЫСТРО':'ДОМАШНИЙ ВКУС';return `<article class="card"><button type="button" data-open="${esc(r.n)}"><div class="art"><img src="${esc(photo(r))}" alt="${esc(r.n)}" loading="lazy" data-fallback="${esc(fallback(r))}"><span class="scribble-tag ${i%2?'pink':''}">${label}</span><span class="hand">${i%3===0?'очень вкусно!':i%3===1?'просто ♥':'попробуй ↓'}</span></div><div class="card-body"><div class="eyebrow"><span>${esc(type(r))}</span><span>${esc(prot(r.p))}</span></div><div class="title">${esc(r.n)}</div><div class="card-foot"><div class="meta">◷ ${esc(r.mins||'—')} мин <span class="dot">·</span> ${esc(r.k||'—')} ккал</div><span class="density ${r.density==='D'?'pink':r.density==='A'?'lime':''}">${esc(r.density||'—')}</span></div></div></button></article>`}
+function card(r,i){const label=i%4===0?'ХИТ':i%4===1?'ЛЮБИМОЕ':i%4===2?'БЫСТРО':'ДОМАШНИЙ ВКУС';return `<article class="card"><button type="button" data-open="${esc(r.n)}"><div class="art"><img src="${esc(photo(r))}" alt="${esc(r.n)}" loading="lazy" data-fallback="${esc(fallback(r))}"><span class="scribble-tag ${i%2?'pink':''}">${label}</span><span class="hand">${i%3===0?'очень вкусно!':i%3===1?'просто ♥':'попробуй ↓'}</span></div><div class="card-body"><div class="eyebrow"><span>${esc(type(r))}</span><span>${esc(prot(r.p))}</span></div><div class="title">${esc(r.n)}</div><div class="card-foot"><div><div class="meta">◷ ${esc(r.mins||'—')} мин <span class="dot">·</span> ${esc(r.k||'—')} ккал</div><div class="macros">${esc(r.m||'Б — · Ж — · У —')}</div></div><span class="density ${r.density==='D'?'pink':r.density==='A'?'lime':''}">${esc(r.density||'—')}</span></div></div></button></article>`}
 const timeChips=()=>[['all','Любое'],['quick','⚡ До 20 мин'],['normal','20–40 мин'],['cook','40–60 мин'],['prep','📦 Готовим еду']];const protChips=()=>[['all','Все'],['chicken','Курица'],['beef','Говядина'],['pork','Свинина'],['shrimp','Креветки'],['egg','Яйца'],['tuna','Тунец'],['veg','Овощи']];
 function renderToday(){let arr=all().filter(r=>(timeFilter==='all'||r.time===timeFilter)&&(proteinFilter==='all'||r.p===proteinFilter));if(!arr.length)arr=all();arr=arr.slice().sort((a,b)=>(a.mins||999)-(b.mins||999)).slice(0,8);const hero=arr[0]||all()[0];return `<section class="hero"><div class="tape">ВКУСНО · ПРОСТО · ДОМА</div><div class="hero-star">✳</div><h1>ЧТО БУДЕМ<br><span>ЕСТЬ?</span></h1><div class="hero-sub">выбирай и готовь ↓</div><div class="hero-photo-wrap"><img class="hero-photo" src="${esc(photo(hero))}" alt="${esc(hero.n)}" data-fallback="${esc(fallback(hero))}"></div><div class="scribble">готовь с удовольствием</div></section><div class="filter-title">Быстрый выбор · время</div><div class="chips">${timeChips().map(([v,l])=>`<button class="chip ${timeFilter===v?'active':''}" data-time-filter="${v}">${l}</button>`).join('')}</div><div class="filter-title">Основной ингредиент</div><div class="chips">${protChips().map(([v,l])=>`<button class="chip pink ${proteinFilter===v?'active':''}" data-protein-filter="${v}">${l}</button>`).join('')}</div><div class="section-head"><h2>Сегодня актуально</h2><small>${arr.length} вариантов</small></div><div class="grid">${arr.map(card).join('')}</div>`}
 function matches(r){const q=query.trim().toLowerCase();const hay=[r.n,r.d,r.p,r.type,...(r.tags||[]),...(r.ing||[])].join(' ').toLowerCase();return(!q||hay.includes(q))&&(timeFilter==='all'||r.time===timeFilter)&&(proteinFilter==='all'||r.p===proteinFilter)&&(recipeType==='all'||r.type===recipeType)}
