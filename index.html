@@ -19,6 +19,125 @@
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:100;display:none;align-items:flex-end}.modal.open{display:flex}.sheet{width:100%;max-height:95vh;overflow:auto;background:var(--paper);color:#111;border:2px solid #111;border-bottom:0;border-radius:28px 28px 0 0;padding:10px 12px calc(28px + var(--safe));animation:up .2s ease}@keyframes up{from{transform:translateY(18px)}to{transform:none}}.sheet-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}.sheet-label{font:900 28px/.8 "Barlow Condensed";text-transform:uppercase}.close{width:44px;height:44px;border:2px solid #111;background:var(--pink);border-radius:50%;font-size:26px;font-weight:900}.detail-hero{position:relative;height:300px;border:2px solid #111;overflow:hidden;border-radius:22px;background:#222;margin-bottom:11px}.detail-hero img{width:100%;height:100%;object-fit:cover}.detail-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,121,197,.25),transparent 50%,rgba(207,255,56,.18));mix-blend-mode:screen}.detail-title{position:absolute;z-index:3;left:12px;bottom:13px;max-width:85%;color:#fff;font:900 49px/.76 "Barlow Condensed";text-transform:uppercase;text-shadow:3px 3px #111}.detail-sticker{position:absolute;z-index:4;right:10px;top:11px;background:var(--lime);padding:7px 10px;border:2px solid #111;font:900 14px/.85 "Barlow Condensed";transform:rotate(7deg)}.detail-hand{font:700 21px/1 "Caveat";margin:3px 0 10px;transform:rotate(-3deg)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:10px 0}.stat{background:#fff;border:1px solid #aaa;border-radius:12px;padding:8px;text-align:center}.stat b{display:block;font:900 20px/.9 "Barlow Condensed"}.stat small{font-size:8px;font-weight:900;text-transform:uppercase;color:#777}.sheet h3{font:900 27px/.8 "Barlow Condensed";text-transform:uppercase;margin:16px 0 7px}.ingredients{border-top:2px solid #111}.ing{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid #d3cbc0;font-size:11px;font-weight:700}.ing:before{content:"□";font-size:20px}.steps{padding-left:20px;font-size:11px;line-height:1.45;font-weight:600}.steps li{margin-bottom:8px}.fav{border:2px solid #111;background:var(--pink);border-radius:50%;width:44px;height:44px;font-size:23px}.toast{position:fixed;z-index:150;left:50%;bottom:95px;transform:translateX(-50%) translateY(12px);opacity:0;background:var(--lime);color:#111;border:2px solid #111;border-radius:999px;padding:9px 13px;font-size:11px;font-weight:900;transition:.18s;pointer-events:none}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .form .field{margin-bottom:10px}.field label{display:block;font:900 14px/.9 "Barlow Condensed";text-transform:uppercase;margin-bottom:5px}.field input,.field textarea,.field select{width:100%;background:#fff;border:1px solid #999;border-radius:12px;padding:11px;font-size:11px;color:#111}.field textarea{min-height:90px;resize:vertical}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.empty{border:1px dashed #555;border-radius:18px;padding:25px;text-align:center;color:#aaa;background:#111;font-weight:700}.result-note{font-size:9px;color:#8f8981;margin:7px 1px}.random-note{font:700 19px/1 "Caveat";color:var(--pink);transform:rotate(-4deg);margin:8px 0}
 @media(min-width:700px){.app{padding-left:20px;padding-right:20px}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{min-height:500px}.hero h1{font-size:82px}.hero-photo-wrap{width:62%;height:72%}}
+
+/* ===== V1.4 — NEON COLLAGE DESIGN SYSTEM ===== */
+:root{--bg:#080808;--paper:#f5f0e6;--paper2:#ebe4d8;--lime:#cfff38;--pink:#ff79c5;--lav:#cdbdff;--white:#fff;--ink:#111;--muted:#9b968f;--line:#454545;--safe:env(safe-area-inset-bottom,0px)}
+html,body{background:var(--bg)!important;color:var(--paper);font-family:"DM Sans",Arial,sans-serif}
+body{overflow-x:hidden}
+.app{max-width:760px;margin:auto;padding:12px 13px calc(102px + var(--safe));position:relative}
+.app:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;background-image:radial-gradient(#fff .7px,transparent .7px);background-size:9px 9px;mask-image:linear-gradient(to bottom,transparent,black 12%,black 88%,transparent)}
+.top{display:grid;grid-template-columns:1fr auto;align-items:start;gap:14px;margin:2px 2px 15px;position:relative;z-index:2}
+.brand{font:900 44px/.72 "Barlow Condensed",Impact,sans-serif;letter-spacing:-.045em;color:var(--lime);text-shadow:2px 0 #111;text-transform:uppercase}
+.brand:after{content:"✳";font:700 29px/1 "Caveat",cursive;color:var(--lime);vertical-align:top;margin-left:4px}
+.top-note{font:600 17px/.88 "Caveat",cursive;text-align:right;color:#fff;transform:rotate(-5deg);padding-top:4px;max-width:145px}
+.top-note b{color:var(--pink);font-size:24px}
+
+/* Today hero */
+.hero{min-height:515px;border:1px solid #474747;border-radius:31px;padding:20px 17px;background:#0b0b0b;box-shadow:0 9px 0 #000;overflow:hidden;position:relative}
+.hero:before{content:"";position:absolute;left:-40px;bottom:80px;width:255px;height:135px;background:var(--pink);clip-path:polygon(3% 25%,93% 4%,100% 74%,72% 100%,10% 83%);transform:rotate(-9deg);opacity:.92}
+.hero:after{content:"✳  ↗  ♥";position:absolute;right:10px;bottom:18px;color:var(--lime);font:800 29px/1 "Caveat",cursive;transform:rotate(8deg);white-space:pre;letter-spacing:8px}
+.hero h1{font:900 clamp(58px,16vw,78px)/.76 "Barlow Condensed",Impact,sans-serif;letter-spacing:-.055em;text-transform:uppercase;position:relative;z-index:6;width:82%;margin:3px 0 0}
+.hero h1 span{color:var(--lime)}
+.hero-sub{position:relative;z-index:7;margin:12px 0 0 2px;font:700 18px/1 "Caveat",cursive;transform:rotate(-4deg);color:#fff}
+.hero-photo-wrap{position:absolute;z-index:3;right:-24px;bottom:35px;width:77%;height:66%;transform:rotate(-4deg)}
+.hero-photo{width:100%;height:100%;object-fit:cover;border:11px solid var(--paper);box-shadow:12px 12px 0 var(--pink);clip-path:polygon(7% 2%,97% 0,100% 88%,78% 100%,7% 94%,0 18%)}
+.hero-photo-wrap:after{content:"";position:absolute;inset:-7px -2px auto auto;width:80px;height:23px;background:var(--lav);transform:rotate(14deg);border:2px solid #111;z-index:9}
+.tape{right:12px;top:27px;background:var(--lime);padding:9px 13px;font:900 17px/.8 "Barlow Condensed";border:2px solid #111;transform:rotate(8deg);box-shadow:4px 4px 0 #000;z-index:8}
+.scribble{left:18px;bottom:31px;font:700 22px/1 "Caveat",cursive;color:#fff;transform:rotate(-8deg);z-index:10;max-width:170px}
+.hero-star{right:9px;bottom:54px;color:var(--lime);font-size:52px;transform:rotate(15deg);z-index:11}
+
+.section-head{margin:26px 2px 11px;position:relative}
+.section-head:after{content:"↗";position:absolute;right:4px;bottom:0;color:var(--pink);font:700 27px/1 "Caveat",cursive;transform:rotate(-12deg)}
+.section-head h2{font:900 44px/.72 "Barlow Condensed",Impact,sans-serif;text-transform:uppercase;letter-spacing:-.045em}
+.section-head small{font:800 9px/1 "DM Sans";letter-spacing:.08em;color:#aaa;text-transform:uppercase}
+.filter-title{margin:16px 2px 7px;font:900 15px/.9 "Barlow Condensed";letter-spacing:.04em;text-transform:uppercase;color:#ddd}
+.chips{gap:7px;padding:3px 0 7px}
+.chip{border:1px solid #555;background:#111;color:#eee;border-radius:999px;padding:9px 12px;font-size:10px;font-weight:900;box-shadow:2px 2px 0 #000;white-space:nowrap}
+.chip.active{background:var(--lime);color:#111;border-color:#111;box-shadow:3px 3px 0 #000}
+.chip.pink.active{background:var(--pink);border-color:#111;color:#111}
+
+/* Search + recipe catalog */
+.search{gap:7px;margin-bottom:3px}
+.search input{background:#0c0c0c;border:1px solid #737373;color:#fff;border-radius:999px;padding:12px 16px;font-size:12px;font-weight:700;height:42px;box-shadow:inset 0 0 0 1px #111}
+.icon-btn{width:44px;height:42px;background:#111;border:1px solid #777;color:#fff;border-radius:50%;font-size:20px}
+.result-note{font:700 15px/1 "Caveat",cursive;color:#fff;transform:rotate(-2deg);margin:8px 4px 11px}
+
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card{background:var(--paper);border:2px solid #111;border-radius:20px;box-shadow:6px 7px 0 #000;overflow:hidden;transform:rotate(-.5deg);position:relative}
+.card:nth-child(2n){transform:rotate(.7deg)}
+.card:nth-child(3n){transform:rotate(-.9deg)}
+.card:nth-child(4n){transform:rotate(.35deg)}
+.card:before{content:"";position:absolute;z-index:6;left:-13px;bottom:42px;width:82px;height:45px;background:var(--pink);clip-path:polygon(0 20%,85% 0,100% 72%,18% 100%);transform:rotate(-12deg)}
+.card:after{content:"✦";position:absolute;z-index:7;right:8px;bottom:8px;color:var(--lime);font:700 25px/1 "Caveat";transform:rotate(15deg)}
+.card button{position:relative}
+.art{height:178px;background:#161616;overflow:hidden}
+.art img{object-fit:cover;transform:scale(1.035)}
+.art:before{content:"";position:absolute;z-index:3;inset:auto 0 0 0;height:42%;background:linear-gradient(transparent,rgba(0,0,0,.18));pointer-events:none}
+.art:after{content:"";position:absolute;z-index:4;left:9px;bottom:9px;width:76px;height:26px;background:var(--pink);clip-path:polygon(0 18%,92% 0,100% 82%,8% 100%);transform:rotate(-8deg);opacity:.9}
+.scribble-tag{right:8px;top:8px;background:var(--lime);color:#111;padding:6px 9px;border:2px solid #111;box-shadow:3px 3px 0 #000;font:900 13px/.8 "Barlow Condensed";transform:rotate(5deg)}
+.scribble-tag.pink{background:var(--pink)}
+.hand{left:8px;bottom:10px;color:#fff;font:700 16px/.9 "Caveat",cursive;text-shadow:2px 2px #111;z-index:5}
+.card-body{padding:12px 12px 14px;position:relative;background:var(--paper)}
+.card-body:before{content:"";position:absolute;left:-4px;right:-5px;top:-8px;height:24px;background:var(--paper);clip-path:polygon(0 25%,8% 0,19% 28%,31% 6%,44% 26%,58% 4%,71% 27%,84% 7%,100% 25%,100% 100%,0 100%)}
+.eyebrow{position:relative;z-index:2;font-size:8px;font-weight:900;color:#6f6a62;letter-spacing:.08em}
+.title{position:relative;z-index:2;margin:5px 0 8px;font:900 29px/.77 "Barlow Condensed",Impact;text-transform:uppercase;letter-spacing:-.035em}
+.meta{position:relative;z-index:2;font-size:9px;font-weight:900;color:#625d56}
+.density{position:relative;z-index:2;border:2px solid #111;border-radius:8px;padding:3px 7px;background:#fff;font-size:8px;font-weight:900;text-transform:uppercase}
+.density.lime{background:var(--lime)}.density.pink{background:var(--pink)}
+
+/* Panels / forms */
+.panel{background:#0d0d0d;border:1px solid #4b4b4b;border-radius:24px;padding:16px;margin-top:18px;box-shadow:6px 6px 0 #000;position:relative;overflow:hidden}
+.panel:after{content:"✳";position:absolute;right:12px;top:8px;color:var(--pink);font:700 28px/1 "Caveat";transform:rotate(12deg)}
+.panel h3,.shop-head h3{font:900 32px/.78 "Barlow Condensed";letter-spacing:-.03em;text-transform:uppercase}
+.panel p{font-size:11px;color:#aaa;line-height:1.4}
+.primary{background:var(--lime);color:#111;border:2px solid #111;border-radius:999px;box-shadow:5px 5px 0 #000;font-weight:900;text-transform:uppercase}
+.secondary{background:var(--paper);color:#111;border:2px solid #111;border-radius:999px;font-weight:900}
+.danger{background:var(--pink);color:#111;border:2px solid #111;border-radius:999px;font-weight:900}
+
+/* Shopping — cream paper + editorial doodles */
+.shop-tabs{background:#111;border:1px solid #444;border-radius:999px;padding:4px;gap:4px}
+.shop-tab{border:0;background:transparent;color:#aaa;border-radius:999px;padding:10px 6px;font-size:10px;font-weight:900}
+.shop-tab.active{background:var(--lime);color:#111}
+.shop-section{background:var(--paper);border:2px solid #111;border-radius:23px;padding:14px;margin-top:13px;box-shadow:6px 6px 0 #000;position:relative;overflow:hidden}
+.shop-section:before{content:"";position:absolute;right:-26px;top:38px;width:125px;height:82px;background:var(--pink);clip-path:polygon(6% 21%,90% 0,100% 70%,70% 100%,0 82%);transform:rotate(-8deg);opacity:.85}
+.shop-section:nth-of-type(4n):before{background:var(--lav)}
+.shop-head{position:relative;z-index:2}.shop-head span{font:700 18px/1 "Caveat",cursive;transform:rotate(-5deg);display:block}
+.shop-help{position:relative;z-index:2;font-size:10px;color:#69635b;max-width:80%}
+.progress{background:#d4cec4;border:1px solid #111;height:7px;position:relative;z-index:2}.progress i{background:var(--lime)}
+.shop-list{position:relative;z-index:3}
+.shop-row{padding:10px 0;border-bottom:1px solid #d1c9bd}
+.shop-row input{accent-color:#111;width:18px;height:18px}.shop-name{font-size:11px;font-weight:800}.shop-qty{font-size:9px}.source-pill{background:#111;color:#fff}
+.shop-note{font:700 19px/1 "Caveat";color:#222;transform:rotate(-4deg);position:relative;z-index:4}
+.manual-add{position:relative;z-index:3}.manual-add input{border:2px solid #111;border-radius:999px}.manual-add button{background:var(--lime);border:2px solid #111;border-radius:50%;width:44px;height:44px;font-size:20px}
+
+/* Bottom navigation */
+.bottom{background:linear-gradient(transparent,rgba(8,8,8,.97) 18%);padding:9px 9px calc(8px + var(--safe));backdrop-filter:blur(12px)}
+.nav{border:1px solid #3f3f3f;background:#0d0d0d;border-radius:23px;padding:4px;box-shadow:0 5px 0 #000}
+.nav button{color:#aaa;border-radius:18px;padding:8px 3px 7px;font-size:9px;font-weight:900}
+.nav-icon{font-size:18px}.nav button.active{background:#222;color:#fff}.nav button[data-tab=today].active,.nav button[data-tab=recipes].active,.nav button[data-tab=shop].active,.nav button[data-tab=saved].active{background:var(--lime);color:#111}
+
+/* Recipe detail — the key screen from the reference */
+.modal{background:rgba(0,0,0,.82);backdrop-filter:blur(3px)}
+.sheet{max-width:760px;margin:auto;background:var(--paper);border:2px solid #111;border-bottom:0;border-radius:30px 30px 0 0;padding:10px 12px calc(30px + var(--safe));box-shadow:0 -10px 0 rgba(207,255,56,.12)}
+.sheet-top{padding:1px 0 7px}.sheet-label{font:900 31px/.75 "Barlow Condensed";text-transform:uppercase}.close{background:var(--pink);border:2px solid #111;width:42px;height:42px;border-radius:50%;box-shadow:3px 3px 0 #000}
+.detail-hero{height:325px;border:2px solid #111;border-radius:24px;margin-bottom:8px;box-shadow:6px 6px 0 #000;position:relative;overflow:hidden}
+.detail-hero img{object-fit:cover;transform:scale(1.03)}
+.detail-hero:before{content:"";position:absolute;z-index:3;left:-8px;bottom:-4px;width:155px;height:90px;background:var(--pink);clip-path:polygon(0 20%,91% 0,100% 76%,74% 100%,8% 86%);transform:rotate(-7deg);opacity:.92}
+.detail-hero:after{content:"✳";position:absolute;z-index:4;right:12px;bottom:12px;color:var(--lime);font:800 45px/1 "Caveat";transform:rotate(15deg)}
+.detail-title{left:12px;bottom:16px;font:900 54px/.72 "Barlow Condensed";letter-spacing:-.045em;text-shadow:4px 4px #111;max-width:88%}
+.detail-sticker{background:var(--lime);border:2px solid #111;box-shadow:3px 3px 0 #000;border-radius:5px;padding:7px 10px;font:900 15px/.8 "Barlow Condensed";transform:rotate(7deg)}
+.detail-hand{font:700 19px/1 "Caveat",cursive;color:#222;transform:rotate(-3deg);margin:6px 4px 10px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.stat{background:#fff;border:1.5px solid #111;border-radius:13px;padding:9px 5px;text-align:center}.stat b{display:block;font:900 18px/.8 "Barlow Condensed"}.stat small{font-size:8px;color:#777;font-weight:800;text-transform:uppercase}
+.sheet h3{font:900 28px/.8 "Barlow Condensed";text-transform:uppercase;margin:18px 0 9px;border-bottom:3px solid var(--lime);padding-bottom:5px}
+.ingredients{border-top:1px solid #c8c0b5}.ing{padding:9px 0;border-bottom:1px solid #c8c0b5;font-size:11px;font-weight:700;position:relative;padding-left:25px}.ing:before{content:"";position:absolute;left:2px;top:9px;width:15px;height:15px;border:1.5px solid #111;border-radius:4px;background:#fff}
+.steps{padding-left:27px}.steps li{padding:8px 0;font-size:11px;line-height:1.4;border-bottom:1px solid #d0c7bb}.steps li::marker{font:900 18px "Barlow Condensed"}
+.fav{width:50px;height:50px;border:2px solid #111;border-radius:50%;background:var(--pink);font-size:25px;box-shadow:3px 3px 0 #000}
+
+/* small decorative utility */
+.empty{background:#111;border:1px dashed #666;border-radius:22px;padding:28px 18px;text-align:center;color:#aaa;font:700 18px/1.1 "Caveat";transform:rotate(-.5deg)}
+.toast{background:var(--lime)!important;color:#111!important;border:2px solid #111!important;border-radius:999px!important;box-shadow:4px 4px 0 #000!important;font-weight:900!important}
+
+@media(max-width:390px){.brand{font-size:38px}.top-note{font-size:15px}.hero{min-height:485px}.hero h1{font-size:58px}.hero-photo-wrap{width:79%;height:62%;bottom:29px}.section-head h2{font-size:39px}.title{font-size:26px}.art{height:158px}.detail-title{font-size:46px}}
 </style></head>
 <body>
 <div class="app"><header class="top"><div class="brand">КУКИНГ<br>ТУДЕЙ*</div><div class="top-note">готовь<br>с удовольствием <b>♡</b></div></header><main id="main"></main></div>
